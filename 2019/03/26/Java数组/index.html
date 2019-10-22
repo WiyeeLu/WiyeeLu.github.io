@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>Java数组 | WiyeeLu</title>
+  
+  
+  <meta name="description" content="on my way to the topp.">
+  
+
+  
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+
+  <!-- link -->
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.6.3/css/all.min.css">
+  
+
+  
+  <link rel="shortcut icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicon.ico">
+  
+
+  
+  <link rel="stylesheet" href="/style.css">
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+    <div id="loading-bar-wrapper">
+  <div id="loading-bar" class="pure"></div>
+</div>
+
+    <script>setLoadingBarProgress(20)</script>
+    <header class="l_header pure">
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" href='/' >
+        
+          WiyeeLu
+        
+      </a>
+			<div class='menu'>
+				<ul class='h-list'>
+          
+  					
+  						<li>
+								<a id="archives"
+								 class="nav flat-box" href="/archives/">
+									<i class='fas fa-archive fa-fw'></i>&nbsp;Archives
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search" />
+						<span class="icon"><i class="fas fa-search fa-fw"></i></span>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-toc'><a class="flat-btn fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu">
+      <ul>
+          
+              
+                  <li>
+										<a id="archives" class="nav flat-box" href="/archives/">
+											<i class='fas fa-archive fa-fw'></i>&nbsp;Archives
+										</a>
+                  </li>
+              
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+    <div class="l_body">
+    <div class='container clearfix'>
+        <div class='l_main'>
+            <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+  
+<section class='meta'>
+  
+  
+  <div class="meta" id="header-meta">
+    
+      
+          <h1 class="title">Java数组</h1>
+      
+    
+
+    <div class='new-meta-box'>
+      
+        <div class='new-meta-item author'>
+          <a href="https://wiyeelu.github.io">
+            <i class="fas fa-user" aria-hidden="true"></i>
+            WiyeeLu
+          </a>
+        </div>
+      
+      
+        <div class="new-meta-item date">
+          <a class='notlink'>
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            2019-03-26
+          </a>
+        </div>
+      
+      
+        
+      
+      
+        
+          <div class="new-meta-item browse busuanzi">
+            <a class='notlink'>
+              <i class="fas fa-eye" aria-hidden="true"></i>
+              <span id="busuanzi_value_page_pv">
+                <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+              </span>
+            </a>
+          </div>
+        
+      
+      
+    </div>
+    <hr>
+  </div>
+</section>
+
+    <section class="article typo">
+      <div class="article-entry" itemprop="articleBody">
+        <p>Java 提供了一个数据结构：数组，用于存储相同类型的元素的一个固定大小的连续集合。数组是用于存储数据的集合，但往往将数组认为是相同类型的变量的集合<br>数组是一种效率最高的存储和随机访问对象引用序列的方式，在性能要求较高的场景中优先考虑数组<br><a id="more"></a></p>
+<h1 id="一维数组"><a href="#一维数组" class="headerlink" title="一维数组"></a>一维数组</h1><h2 id="声明数组变量"><a href="#声明数组变量" class="headerlink" title="声明数组变量"></a>声明数组变量</h2><p>首先必须声明数组变量，才能在程序中使用数组<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dateType[] arrayRefVar;</span><br><span class="line"></span><br><span class="line">eg.</span><br><span class="line"><span class="keyword">double</span>[] myList;</span><br></pre></td></tr></table></figure></p>
+<h2 id="创建、处理数组"><a href="#创建、处理数组" class="headerlink" title="创建、处理数组"></a>创建、处理数组</h2><p>数量变量的声明和创建数组<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">dataType[] arrayRefVar = <span class="keyword">new</span> dataType[arraySize];</span><br><span class="line"></span><br><span class="line">or</span><br><span class="line"></span><br><span class="line">dataType[] arrayRefVar = &#123;value0, value1, ..., valuek&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//求数组的大小,数组是定长的，一旦初始化声明后是不可改变长度的</span></span><br><span class="line">arrayRefVar.length</span><br></pre></td></tr></table></figure></p>
+<p>eg.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Number</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">double</span>[] myList = &#123;<span class="number">7.2</span>, <span class="number">8.3</span>, <span class="number">2.0</span>, <span class="number">3.0</span>&#125;;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 打印所有数组元素</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; myList.length; i++) &#123;</span><br><span class="line">            System.out.println(myList[i]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 计算所有元素的总和</span></span><br><span class="line">        <span class="keyword">double</span> total = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; myList.length; i++) &#123;</span><br><span class="line">            total += myList[i];</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(total);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 查找最大元素</span></span><br><span class="line">        <span class="keyword">double</span> max = myList[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; myList.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (myList[i] &gt; max) max = myList[i];</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(max);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="变长数组"><a href="#变长数组" class="headerlink" title="变长数组"></a>变长数组</h2><p>虽然数组是定长的，一旦初始化声明后是不可改变长度，但是我们可以利用 List 集合 add 方法里面的扩容思路来模拟实现<br>思路：创建一个长度与原数组不同的新数组，让原数组变量指向新数组，实现长度可变<br>ArrayList：动态数组，Array 的复杂版本</p>
+<ol>
+<li><p>创建新数组，让原数组变量指向新数组</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.day032602;</span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Number</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] src1 = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span>[] src2 = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>];</span><br><span class="line">        src1 = src2;</span><br><span class="line">        src1[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        src1[<span class="number">1</span>] = <span class="number">2</span>;</span><br><span class="line">        src1[<span class="number">2</span>] = <span class="number">3</span>;</span><br><span class="line">        System.out.println(Arrays.toString(src1));<span class="comment">//把数组转化成字符串输出</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//输出结果</span></span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用 ArrayList 代替数组，通过泛型 ArrayList 可以储存不同类型的对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.day032602;</span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Number</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        ArrayList&lt;Integer&gt; a = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        a.add(<span class="number">1</span>);</span><br><span class="line">        a.add(<span class="number">2</span>);</span><br><span class="line">        a.add(<span class="number">3</span>);</span><br><span class="line">        <span class="comment">//输出数组元素数量</span></span><br><span class="line">        System.out.println(a.size());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//输出结果</span></span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="for-each-循环"><a href="#for-each-循环" class="headerlink" title="for-each 循环"></a>for-each 循环</h2><p>for-each 循环或者加强型循环，它能在不使用下标的情况下遍历数组<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//语法格式</span></span><br><span class="line"><span class="keyword">for</span>(type element: array)</span><br><span class="line">&#123;</span><br><span class="line">    System.out.println(element);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>eg.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Number</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">double</span>[] myList = &#123;<span class="number">7.2</span>, <span class="number">8.3</span>, <span class="number">2.0</span>, <span class="number">3.0</span>&#125;;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//打印所有数组元素</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">double</span> element: myList)&#123;</span><br><span class="line">            System.out.println(element);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//输出结果</span></span><br><span class="line"><span class="number">7.2</span></span><br><span class="line"><span class="number">8.3</span></span><br><span class="line"><span class="number">2.0</span></span><br><span class="line"><span class="number">3.0</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="数组的查找"><a href="#数组的查找" class="headerlink" title="数组的查找"></a>数组的查找</h2><p>查找是在数组中寻找特定元素的过程<br>两种常用的方法：线性查找（linear searching）和二分查找（binary searching）</p>
+<h3 id="线性查找法"><a href="#线性查找法" class="headerlink" title="线性查找法"></a>线性查找法</h3><p>线性查找法将要查找的关键字 key 与数组中的元素逐个进行比较。如果匹配成功，线性查找法则返回与关键字匹配的元素在数组中的下标；如果没有匹配成功，则返回 -1<br>eg.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Number</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">LinearSearch</span><span class="params">(<span class="keyword">int</span>[] list,<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; list.length;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(key == list[i])&#123;</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] list = &#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, -<span class="number">3</span>&#125;;</span><br><span class="line">        <span class="keyword">int</span> number1 = LinearSearch(list, <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">int</span> number2 = LinearSearch(list, <span class="number">7</span>);</span><br><span class="line">        <span class="keyword">int</span> number3 = LinearSearch(list, -<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(number1);</span><br><span class="line">        System.out.println(number2);</span><br><span class="line">        System.out.println(number3);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//输出结果</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line">-<span class="number">1</span></span><br></pre></td></tr></table></figure></p>
+<p>线性查找法把关键字和数组中的每一个元素进行比较，效率不高</p>
+<h3 id="二分查找法"><a href="#二分查找法" class="headerlink" title="二分查找法"></a>二分查找法</h3><p>使用二分查找法的前提条件是数组中的元素必须已经排好序，假设数组已经按升序排，二分查找法首先将关键字与数组的中间元素进行比较，考虑下面三种情况：</p>
+<ul>
+<li>如果关键字小于中间元素，只需要在数组的前一半元素中继续查找关键字</li>
+<li>如果关键字等于中间元素，则匹配成功，查找结束</li>
+<li>如果关键字大于中间元素，只需要在数组的后一半元素中继续查找关键字</li>
+</ul>
+<p>eg.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Number</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(<span class="keyword">int</span>[] list,<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> high = list.length - <span class="number">1</span>;</span><br><span class="line">        <span class="comment">//直到low &gt; high时还没找到关键字就结束查找，返回 -1</span></span><br><span class="line">        <span class="keyword">while</span>(low &lt;= high)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid = (low + high)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(key &lt; list[mid])&#123;</span><br><span class="line">                high = mid - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(key &gt; list[mid])&#123;</span><br><span class="line">                low = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(key == list[mid])&#123;</span><br><span class="line">                <span class="keyword">return</span> mid;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] list = &#123;<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">11</span>,<span class="number">13</span>,<span class="number">15</span>,<span class="number">17</span>&#125;;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> number1 = binarySearch(list,<span class="number">7</span>);</span><br><span class="line">        <span class="keyword">int</span> number2 = binarySearch(list,<span class="number">11</span>);</span><br><span class="line">        <span class="keyword">int</span> number3 = binarySearch(list,<span class="number">23</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(number1);</span><br><span class="line">        System.out.println(number2);</span><br><span class="line">        System.out.println(number3);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//输出结果</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line">-<span class="number">1</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="数组排序"><a href="#数组排序" class="headerlink" title="数组排序"></a>数组排序</h2><p>eg.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.Collections;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Number</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//升序排序</span></span><br><span class="line">        <span class="comment">//定义一个整型数组</span></span><br><span class="line">        <span class="keyword">int</span>[] scores = &#123; <span class="number">78</span>, <span class="number">93</span>, <span class="number">84</span>, <span class="number">64</span> &#125;;</span><br><span class="line">        <span class="comment">//使用 Arrays 类的 sort() 方法对数组进行升序排序</span></span><br><span class="line">        Arrays.sort(scores);</span><br><span class="line">        System.out.println(<span class="string">"升序排序后数组中元素的值："</span>);</span><br><span class="line">        System.out.println(Arrays.toString(scores));</span><br><span class="line"></span><br><span class="line">        <span class="comment">//倒序排序</span></span><br><span class="line">        <span class="comment">//这里必须把 int 类型写成 Integer 类型才能通过</span></span><br><span class="line">        Integer [] scores1 = &#123; <span class="number">78</span>, <span class="number">93</span>, <span class="number">84</span>, <span class="number">64</span> &#125;;</span><br><span class="line">        <span class="comment">//使用 Arrays 类的 sort() 方法对数组进行倒序排序</span></span><br><span class="line">        Arrays.sort(scores1,Collections.reverseOrder());</span><br><span class="line">        System.out.println(<span class="string">"倒序排序后数组中元素的值："</span>);</span><br><span class="line">        System.out.println(Arrays.toString(scores1));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//输出结果</span></span><br><span class="line">升序排序后数组中元素的值：</span><br><span class="line">[<span class="number">64</span>, <span class="number">78</span>, <span class="number">84</span>, <span class="number">93</span>]</span><br><span class="line">倒序排序后数组中元素的值：</span><br><span class="line">[<span class="number">93</span>, <span class="number">84</span>, <span class="number">78</span>, <span class="number">64</span>]</span><br></pre></td></tr></table></figure></p>
+<h2 id="Arrays-类"><a href="#Arrays-类" class="headerlink" title="Arrays 类"></a>Arrays 类</h2><p>java.util.Arrays 类能方便地操作数组，它提供的所有方法都是静态的<br>导入<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>给数组赋值：通过 fill 方法</li>
+<li>对数组排序：通过 sort 方法，按升序</li>
+<li>比较数组：通过 equals 方法比较数组中元素值是否相等</li>
+<li>查找数组元素：通过 binarySearch 方法能对排序好的数组进行二分查找法操作<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//用二分查找算法在给定数组中搜索给定值的对象</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(Object[] a, Object key)</span></span></span><br><span class="line"><span class="function"><span class="comment">//导入包之后引用：</span></span></span><br><span class="line"><span class="function">Arrays.<span class="title">binarySearch</span><span class="params">(Object[] a, Object key)</span></span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//如果两个指定的 long 型数组彼此相等，则返回 true</span></span><br><span class="line"><span class="comment">//如果两个数组包含相同数量的元素，并且两个数组中的所有相应元素对都是相等的</span></span><br><span class="line"><span class="comment">//则认为这两个数组是相等的</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(<span class="keyword">long</span>[] a, <span class="keyword">long</span>[] a2)</span></span></span><br><span class="line"><span class="function"><span class="comment">//导入包之后引用：</span></span></span><br><span class="line"><span class="function">Arrays.<span class="title">equals</span><span class="params">(<span class="keyword">long</span>[] a, <span class="keyword">long</span>[] a2)</span></span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//填充数组</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">fill</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span> val)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="comment">//eg.</span></span></span><br><span class="line"><span class="function"><span class="keyword">import</span> java.util.Arrays</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Number</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> [] a = &#123; <span class="number">10</span>, <span class="number">20</span> , <span class="number">36</span>, <span class="number">50</span>&#125;;</span><br><span class="line">        <span class="comment">//填充 a[1] 到 a[3-1] 为 8 </span></span><br><span class="line">        Arrays.fill(a,<span class="number">1</span>,<span class="number">3</span>,<span class="number">8</span>);</span><br><span class="line">        System.out.println(Arrays.toString(a));</span><br><span class="line">        <span class="comment">//输出 [10, 8, 8, 50]</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Number</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> [] a = &#123; <span class="number">10</span>, <span class="number">20</span> , <span class="number">36</span>, <span class="number">50</span>&#125;;</span><br><span class="line">        <span class="comment">//全部填充为8</span></span><br><span class="line">        Arrays.fill(a,<span class="number">8</span>);</span><br><span class="line">        System.out.println(Arrays.toString(a));</span><br><span class="line">        <span class="comment">//输出 [8, 8, 8, 8]</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h1><p>新建一个二维数组<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Number</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> [][] a = &#123;&#123;<span class="number">2</span>, <span class="number">6</span>, <span class="number">8</span>&#125;,&#123;<span class="number">7</span>, <span class="number">3</span>, <span class="number">9</span>&#125;&#125;;</span><br><span class="line">        <span class="comment">//访问二维数组的长度</span></span><br><span class="line">        System.out.println(a[<span class="number">0</span>].length);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//打印数组，for 循环</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> row = <span class="number">0</span>; row &lt; a.length ; row++)&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> column = <span class="number">0</span>; column &lt; a[row].length ; column++)&#123;</span><br><span class="line">                System.out.println(a[row][column] + <span class="string">" "</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="数组线性表-ArrayList-类"><a href="#数组线性表-ArrayList-类" class="headerlink" title="数组线性表 ArrayList 类"></a>数组线性表 ArrayList 类</h1><p>Java 提供 ArrayList 类来存储不限定个数的对象<br>优点：</p>
+<ul>
+<li>容量不固定（有一个较大的最大阈值）</li>
+<li>有序的（与输入顺序一致）</li>
+<li>元素可以为 null</li>
+<li>效率高</li>
+<li>占用空间更小</li>
+</ul>
+<p>ArrayList 中的一些方法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ArrayList()                                 创建一个空的线性表</span><br><span class="line">add(o: Object): <span class="keyword">void</span>                        在这个线性表的末尾追加一个新元素 <span class="number">0</span></span><br><span class="line">add(index: <span class="keyword">int</span>, o:Object): <span class="keyword">void</span>             在这个线性表的特定下标处增加一个新元素 <span class="number">0</span></span><br><span class="line">clear(): <span class="keyword">void</span>                               从这个线性表中删除所有的元素</span><br><span class="line">contains(o:Object): <span class="keyword">boolean</span>                 如果这个线性表包含元素 <span class="number">0</span> 则返回 <span class="keyword">true</span></span><br><span class="line">get(index: <span class="keyword">int</span>): Object                     返回这个线性表在特定下标处的元素</span><br><span class="line">indexOf(o:Object): <span class="keyword">int</span>                      返回这个线性表中第一个匹配元素的下标</span><br><span class="line">isEmpty(): <span class="keyword">boolean</span>                          如果这个线性表不包含元素则返回 <span class="keyword">true</span></span><br><span class="line">lastIndexOf(o:Object): <span class="keyword">int</span>                  返回这个线性表中最后一个匹配元素的下标</span><br><span class="line">remove(o:Object): <span class="keyword">boolean</span>                   删除指定下标处的元素</span><br><span class="line">set(index: <span class="keyword">int</span>, o:Object): Object           设置在特定下标处的元素</span><br></pre></td></tr></table></figure></p>
+<p>eg.使用 ArrayList 存储对象<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Array</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        ArrayList cityList = <span class="keyword">new</span> ArrayList();</span><br><span class="line"></span><br><span class="line">        cityList.add(<span class="string">"Hongkong"</span>);</span><br><span class="line">        cityList.add(<span class="string">"London"</span>);</span><br><span class="line">        cityList.add(<span class="string">"Paris"</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"数组大小： "</span> + cityList.size());</span><br><span class="line">        System.out.println(<span class="string">"HongKong 在数组里吗？ "</span> + cityList.contains(<span class="string">"Hongkong"</span>));</span><br><span class="line">        System.out.println(<span class="string">"HongKong 在数组的哪个位置： "</span> + cityList.indexOf(<span class="string">"Hongkong"</span>));</span><br><span class="line">        System.out.println(<span class="string">"这个数组是空的吗？ "</span> + cityList.isEmpty());</span><br><span class="line"></span><br><span class="line">        <span class="comment">//在数组第 2 的位置增加 Guangdong</span></span><br><span class="line">        cityList.add(<span class="number">2</span>,<span class="string">"Guangdong"</span>);</span><br><span class="line">        <span class="comment">//移除 London</span></span><br><span class="line">        cityList.remove(<span class="string">"London"</span>);</span><br><span class="line">        <span class="comment">//移除 Paris</span></span><br><span class="line">        cityList.remove(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//以字符串形式输出数组</span></span><br><span class="line">        System.out.println(cityList.toString());</span><br><span class="line"></span><br><span class="line">        <span class="comment">//for 循环遍历数组</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = cityList.size() - <span class="number">1</span>; i&gt;=<span class="number">0</span>;i--) &#123;</span><br><span class="line">            System.out.println(cityList.get(i) + <span class="string">" "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//输出结果</span></span><br><span class="line">数组大小： <span class="number">3</span></span><br><span class="line">HongKong 在数组里吗？ <span class="keyword">true</span></span><br><span class="line">HongKong 在数组的哪个位置： <span class="number">0</span></span><br><span class="line">这个数组是空的吗？ <span class="keyword">false</span></span><br><span class="line">[Hongkong, Guangdong]</span><br><span class="line">Guangdong </span><br><span class="line">Hongkong</span><br></pre></td></tr></table></figure></p>
+<h2 id="数组和-ArrayList-之间的异同"><a href="#数组和-ArrayList-之间的异同" class="headerlink" title="数组和 ArrayList 之间的异同"></a>数组和 ArrayList 之间的异同</h2><p>可以像使用数组一样使用 ArrayList 对象，但是两者还是有很多不同之处<br>一旦创建了一个数组，它的大小就确定下来了。可以使用方括号访问数组元素（eg. a[index]）。当创建 ArrayList 后，它的大小为 0 。如果元素不在线性表中，就不能使用 get 和 set 方法。向线性表中添加，插入和删除元素是比较容易的，而向数组中添加、插入和删除元素是比较复杂的。为了实现这些操作，必须编写代码操纵这个数组</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">    操作                             数组                                  ArrayList</span><br><span class="line">创建数组/ArrayList          Object[] a = <span class="keyword">new</span> Objext[<span class="number">10</span>]         ArrayList list = <span class="keyword">new</span> ArrayList()</span><br><span class="line">引用元素                    a [index]                           list.get(index)</span><br><span class="line">更新元素                    a [index] = <span class="string">"Hongkong"</span>;             list.set(index,<span class="string">"Hongkong"</span>);</span><br><span class="line">返回大小                    a length                            list.size()</span><br><span class="line">添加一个新元素                                                  list.add(<span class="string">"Hongkong"</span>)</span><br><span class="line">插入一个新元素                                                  list.add(index,<span class="string">"Hongkong"</span>)</span><br><span class="line">删除一个元素                                                    list.remove(index);</span><br><span class="line">删除一个元素                                                    list.remove(Object)</span><br><span class="line">删除所有元素                                                    list.clear()</span><br></pre></td></tr></table></figure>
+      </div>
+        
+          <section class='meta' id="footer-meta">
+            <hr>
+            <div class='new-meta-box'>
+              
+                <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-06-21T08:58:06+08:00">
+                  <a class='notlink'>
+                    <i class="fas fa-pencil-alt" aria-hidden="true"></i>
+                    2019-06-21
+                  </a>
+                </div>
+              
+              
+                
+                <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Java/"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;Java</a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/数组/"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;数组</a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/array/"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;array</a></div>
+              
+              
+            </div>
+          </section>
+        
+
+        
+            <div class="prev-next">
+                
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous</h6>
+                            <h4>
+                                <a href="/2019/03/27/Java异常/" rel="prev" title="Java异常">
+                                  
+                                      Java异常
+                                  
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/Java/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Java</a> <a class="tag" href="/tags/异常处理/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>异常处理</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2019/03/25/理解Java面对对象的三大特性-封装、继承、多态/" rel="prev" title="理解Java面对对象的三大特性--封装、继承、多态">
+                                    
+                                        理解Java面对对象的三大特性--封装、继承、多态
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/Java/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Java</a> <a class="tag" href="/tags/封装/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>封装</a> <a class="tag" href="/tags/继承/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>继承</a> <a class="tag" href="/tags/多态/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>多态</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+
+    </section>
+
+</article>
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+<br>
+
+<!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments">
+    <section class="article typo">
+      <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;Comments</h4>
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-spinner fa-spin fa-fw"></i>
+          </div>
+        </section>
+      
+    </section>
+  </article>
+
+
+
+<script>
+    window.subData = {
+        title: 'Java数组',
+        tools: true
+    }
+</script>
+
+
+        </div>
+        <aside class='l_side'>
+            
+  
+  
+    
+      
+      
+        <section class='author'>
+  <div class='content pure'>
+    
+      <div class='avatar'>
+        <img class='avatar' src='https://res.cloudinary.com/wiyeely/image/upload/v1553152177/22922331760_97592547a8_z.jpg'/>
+      </div>
+    
+    
+      <div class='text'>
+        
+          <h2>WiyeeLu</h2>
+        
+        
+          <p>on my way to the topp.</p>
+
+        
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="mailto:WiHieree@Yahoo.com" class="social flat-btn" target="_blank" rel="external"><i class="social fas fa-envelope" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://github.com/WiyeeLu" class="social flat-btn" target="_blank" rel="external"><i class="social fab fa-github" aria-hidden="true"></i></a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+      
+    
+  
+    
+      
+      
+        
+  <section class='toc-wrapper'>
+    
+<header class='pure'>
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Table of Contents</div>
+  
+    <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+  
+</header>
+
+    <div class='content pure'>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一维数组"><span class="toc-text">一维数组</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#声明数组变量"><span class="toc-text">声明数组变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建、处理数组"><span class="toc-text">创建、处理数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#变长数组"><span class="toc-text">变长数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#for-each-循环"><span class="toc-text">for-each 循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数组的查找"><span class="toc-text">数组的查找</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#线性查找法"><span class="toc-text">线性查找法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二分查找法"><span class="toc-text">二分查找法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数组排序"><span class="toc-text">数组排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Arrays-类"><span class="toc-text">Arrays 类</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#多维数组"><span class="toc-text">多维数组</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数组线性表-ArrayList-类"><span class="toc-text">数组线性表 ArrayList 类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数组和-ArrayList-之间的异同"><span class="toc-text">数组和 ArrayList 之间的异同</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+      
+    
+  
+
+
+        </aside>
+        <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+    <footer id="footer" class="clearfix">
+  
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="mailto:WiHieree@Yahoo.com" class="social fas fa-envelope flat-btn" target="_blank" rel="external"></a>
+        
+      
+        
+          <a href="https://github.com/WiyeeLu" class="social fab fa-github flat-btn" target="_blank" rel="external"></a>
+        
+      
+    </div>
+  
+  <br>
+  <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+  <div>Use <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a> as theme, total visits <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span> times. 
+  </div>
+</footer>
+
+    <script>setLoadingBarProgress(80);</script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+
+  <script>
+    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+    var ALGOLIA_API_KEY = "";
+    var ALGOLIA_APP_ID = "";
+    var ALGOLIA_INDEX_NAME = "";
+    var AZURE_SERVICE_NAME = "";
+    var AZURE_INDEX_NAME = "";
+    var AZURE_QUERY_KEY = "";
+    var BAIDU_API_ID = "";
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/"||"/";
+    if(!ROOT.endsWith('/'))ROOT += '/';
+  </script>
+
+
+  
+    <script async src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        const $reveal = $('.reveal');
+    		if ($reveal.length === 0) return;
+    		const sr = ScrollReveal({ distance: 0 });
+    		sr.reveal('.reveal');
+      });
+    </script>
+  
+  
+    <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        Waves.attach('.flat-btn', ['waves-button']);
+        Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+        Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+        Waves.attach('.flat-box', ['waves-block']);
+        Waves.attach('.float-box', ['waves-block', 'waves-float']);
+        Waves.attach('.waves-image');
+        Waves.init();
+      });
+    </script>
+  
+  
+    <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+  
+  
+  
+
+  
+  
+  
+  
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    
+      
+        <script src="https://cdn.jsdelivr.net/gh/xaoxuu/volantis@1/js/volantis.min.js"></script>
+      
+    
+    <script>
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+      return GUEST_INFO.indexOf(item) > -1
+    });
+    var notify = 'false' == true;
+    var verify = 'false' == true;
+    var valine = new Valine();
+    valine.init({
+      el: '#valine_container',
+      notify: notify,
+      verify: verify,
+      guest_info: guest_info,
+      
+      appId: "JNeTBifEwmUfmdnyOEBG4suK-gzGzoHsz",
+      appKey: "Oyb5B8Dne8WofJBoEDKe60nC",
+      placeholder: "on my way to the topp.",
+      pageSize:'10',
+      avatar:'mp',
+      lang:'zh-cn',
+      highlight:''
+    })
+    </script>
+  
+
+  
+    <script src="/js/app.js"></script>
+<script src="/js/search.js"></script>
+  
+
+
+
+
+
+
+    <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

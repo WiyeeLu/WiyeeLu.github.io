@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>理解Java面对对象的三大特性--封装、继承、多态 | WiyeeLu</title>
+  
+  
+  <meta name="description" content="on my way to the topp.">
+  
+
+  
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+
+  <!-- link -->
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.6.3/css/all.min.css">
+  
+
+  
+  <link rel="shortcut icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicon.ico">
+  
+
+  
+  <link rel="stylesheet" href="/style.css">
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+    <div id="loading-bar-wrapper">
+  <div id="loading-bar" class="pure"></div>
+</div>
+
+    <script>setLoadingBarProgress(20)</script>
+    <header class="l_header pure">
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" href='/' >
+        
+          WiyeeLu
+        
+      </a>
+			<div class='menu'>
+				<ul class='h-list'>
+          
+  					
+  						<li>
+								<a id="archives"
+								 class="nav flat-box" href="/archives/">
+									<i class='fas fa-archive fa-fw'></i>&nbsp;Archives
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search" />
+						<span class="icon"><i class="fas fa-search fa-fw"></i></span>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-toc'><a class="flat-btn fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu">
+      <ul>
+          
+              
+                  <li>
+										<a id="archives" class="nav flat-box" href="/archives/">
+											<i class='fas fa-archive fa-fw'></i>&nbsp;Archives
+										</a>
+                  </li>
+              
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+    <div class="l_body">
+    <div class='container clearfix'>
+        <div class='l_main'>
+            <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+  
+<section class='meta'>
+  
+  
+  <div class="meta" id="header-meta">
+    
+      
+          <h1 class="title">理解Java面对对象的三大特性--封装、继承、多态</h1>
+      
+    
+
+    <div class='new-meta-box'>
+      
+        <div class='new-meta-item author'>
+          <a href="https://wiyeelu.github.io">
+            <i class="fas fa-user" aria-hidden="true"></i>
+            WiyeeLu
+          </a>
+        </div>
+      
+      
+        <div class="new-meta-item date">
+          <a class='notlink'>
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            2019-03-25
+          </a>
+        </div>
+      
+      
+        
+      
+      
+        
+          <div class="new-meta-item browse busuanzi">
+            <a class='notlink'>
+              <i class="fas fa-eye" aria-hidden="true"></i>
+              <span id="busuanzi_value_page_pv">
+                <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+              </span>
+            </a>
+          </div>
+        
+      
+      
+    </div>
+    <hr>
+  </div>
+</section>
+
+    <section class="article typo">
+      <div class="article-entry" itemprop="articleBody">
+        <p>Java 面对对象的三大特征是：封装、继承、多态<br>继承是为多态的实现做准备</p>
+<a id="more"></a>
+<h1 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>隐藏对象的属性和实现细节，仅对外公开接口，控制在程序中属性的读和修改的访问级别</p>
+<h2 id="封装的目的"><a href="#封装的目的" class="headerlink" title="封装的目的"></a>封装的目的</h2><p>增强安全性和简化编程，使用者不必了解具体的实现细节，而只是要通过外部接口，一特定的访问权限来使用类的成员</p>
+<h2 id="封装的好处"><a href="#封装的好处" class="headerlink" title="封装的好处"></a>封装的好处</h2><p>良好的封装能够减少耦合<br>类内部的结构可以自由修改<br>可以对成员进行更精确的控制<br>隐藏信息，实现细节</p>
+<h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>继承是使用已存在的类的定义作为基础建立新类的技术，新类的定义可以增加新的数据或新的功能，也可以用父类的功能，但不能选择性地继承父类。通过使用继承我们能够非常方便地复用以前的代码，能够大大的提高开发的效率</p>
+<h2 id="使用继承的场景"><a href="#使用继承的场景" class="headerlink" title="使用继承的场景"></a>使用继承的场景</h2><p>当两个类具有相同的特征（属性）和行为（方法）时，可以将相同的部分抽取出来放到一个类中作为父类，其它两个类继承这个父类</p>
+<h2 id="使用继承的优点"><a href="#使用继承的优点" class="headerlink" title="使用继承的优点"></a>使用继承的优点</h2><p>子类拥有父类非 private 的属性和方法，但是不能继承构造器，构造器只能被调用 super();（注意 super(); 必须是构造方法中的第一条语句）<br>eg.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//A.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    A()&#123;</span><br><span class="line">        System.out.println(<span class="string">"star!!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//B.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    B()&#123;</span><br><span class="line">        <span class="keyword">super</span>();<span class="comment">//必须在第一行</span></span><br><span class="line">        System.out.println(<span class="string">"aaa"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Test.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        B b = <span class="keyword">new</span> B();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//输出结果</span></span><br><span class="line">star!!</span><br><span class="line">aaa</span><br></pre></td></tr></table></figure></p>
+<p>子类可以拥有自己属性和方法，即子类可以对父类进行扩展<br>子类可以用自己的方式实现父类的方法<br>实现代码共享，避免重复外，还可以使得修改扩展继承而来的实现比较简单</p>
+<h1 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h1><h2 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h2><h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><p>多态，是面向对象的程序设计语言最核心的特征。多态，意味着一个对象有着多重特征，可以在特定的情况下，表现不同的状态，从而对应着不同的属性和方法<br>即同一个事件发生在不同的对象上会产生不同的结果（同样是 Animal 的 voice()，但是 Cat/Dog 不同对象产生的 voice() 结果是不一样的）</p>
+<h3 id="实现技术"><a href="#实现技术" class="headerlink" title="实现技术"></a>实现技术</h3><p>动态绑定，是指在执行期间判断所引用对象的实际类型，根据其实际的类型调用其相应的方法</p>
+<h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>消除类型之间的耦合关系<br>程序的可扩展性及可维护性增强</p>
+<h3 id="多态的例子"><a href="#多态的例子" class="headerlink" title="多态的例子"></a>多态的例子</h3><p>举一个通俗易懂的：比如有动物（Animal）之类别（class），由动物继承出类别鸟（Bird）、类别兔子（Ribbit）和猫（Cat），它们对同一源自类别动物（父类别）之一信息有不同的响应，如类别动物有“移动（）”这个动作，而类别鸟会“飞（）”，类别兔子会“跳（）”，类别猫则会“跑（）”，这就是多态，即相同的消息给予不同的对象会引发不同的动作</p>
+<h2 id="多态的实现"><a href="#多态的实现" class="headerlink" title="多态的实现"></a>多态的实现</h2><p>Java 中有两种形式可以实现多态：基于继承实现多态和基于接口实现多态</p>
+<h3 id="多态存在的三个必要条件"><a href="#多态存在的三个必要条件" class="headerlink" title="多态存在的三个必要条件"></a>多态存在的三个必要条件</h3><p>1   要有继承关系        （继承）<br>2   子类要重写父类的方法 （重写）<br>3   父类引用指向子类对象 （向上转型）<br>只要满足了上述三个条件，我们才能够在同一继承结构中使用统一的逻辑实现代码处理不同的对象，达到执行不同的行为，即多态</p>
+<h3 id="基于继承实现多态"><a href="#基于继承实现多态" class="headerlink" title="基于继承实现多态"></a>基于继承实现多态</h3><p>基于继承的实现机制主要表现在父类和继承该父类的一个或多个子类对某些方法的重写，多个子类对同一方法的重写可以表现出不同的行为</p>
+<p>eg.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义超类 Car</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">start</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"汽车发动机启动"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义子类 XiaoHuangYa</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">XiaoHuangYa</span> <span class="keyword">extends</span> <span class="title">Car</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">start</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"小黄鸭的 Audi-RS5 发动机启动"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义子类 TuoHai</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TuoHai</span> <span class="keyword">extends</span> <span class="title">Car</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">start</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"拓海的 丰田AE86 发动机启动"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//测试类 Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        Car c1 = <span class="keyword">new</span> XiaoHuangYa();</span><br><span class="line">        Car c2 = <span class="keyword">new</span> TuoHai();</span><br><span class="line"></span><br><span class="line">        c1.start(); <span class="comment">//小黄鸭的 Audi-RS5 发动机启动</span></span><br><span class="line">        c2.start(); <span class="comment">//拓海的 丰田AE86 发动机启动</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//运行结果：</span></span><br><span class="line">小黄鸭的 Audi-RS5 发动机启动</span><br><span class="line">拓海的 丰田AE86 发动机启动</span><br></pre></td></tr></table></figure></p>
+<p>上述程序遵循的原则：当超类对象引用变量引用子类对象时，被引用对象的类型而不是引用变量的类型决定了调用谁的成员方法，但是这个被调用的方法必须是在超类中定义过的，在子类被覆盖的方法；当子类重写父类的方法被调用时，只有对象继承链中的最末端的方法才会被调用<br>若超类是一个抽象类的时候，抽象类的子类必须覆盖实现超类中的所有的抽象方法，否则子类必须被 abstract 修饰符修饰，但是被 abstract 修饰之后不能被实例化</p>
+<h3 id="基于接口实现多态"><a href="#基于接口实现多态" class="headerlink" title="基于接口实现多态"></a>基于接口实现多态</h3><p>接口的灵活性就在于“规定一个类必须做什么，而不管你如何做”。我们可以定义一个接口类型的引用变量来引用实现接口的类的实例，当这个引用调用方法时，它会根据实际引用的类的实例来判断具体调用哪个方法，这和上述的超类对象引用访问子类对象的机制相似。<br>继承都是单继承，只能为一组相关的类提供一致的服务接口。但是接口可以是多继承多实现，它能够利用一组相关或者不相关的接口进行组合与扩充，能够对外提供一致的服务接口。所以它相对于继承来说有更好的灵活性</p>
+<p>eg.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义一个接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">CustomerService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//定义一个退出系统的方法</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">logout</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义一个类实现该接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomerServiceImpl</span> <span class="keyword">implements</span> <span class="title">CustomerService</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//对接口中的抽象方法进行实现</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">logout</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">		System.out.println(<span class="string">"成功退出系统！"</span>);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//测试类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//要执行 CustomerServiceImpl 中的 logout 方法</span></span><br><span class="line">		<span class="comment">//以下程序面向接口去调用</span></span><br><span class="line">		CustomerService cs = <span class="keyword">new</span> CustomerServiceImpl(); <span class="comment">//多态</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">//调用</span></span><br><span class="line">		cs.logout();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">输出结果：</span><br><span class="line">成功退出系统！</span><br></pre></td></tr></table></figure></p>
+<p>Java 在利用接口变量调用其实现类的对象的方法时，该方法必须已经在接口中被声明，而且在接口的实现类中该实现方法的类型和参数必须与接口中所定义的精确匹配</p>
+<h4 id="继承链中的优先级"><a href="#继承链中的优先级" class="headerlink" title="继承链中的优先级"></a>继承链中的优先级</h4><p>继承链中对象方法的调用存在一个优先级：this.show(O)、super.show(O)、this.show((super)O)、super.show((super)O)<br>即先查 this 对象的父类，没有就重头再查参数的父类</p>
+<p>eg. 优先级的体现</p>
+<ol>
+<li><p>新建一个 A.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">show</span><span class="params">(D obj)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (<span class="string">"A adn D"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">show</span><span class="params">(A obj)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (<span class="string">"A and A"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>新建一个 B.java 继承 A.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">show</span><span class="params">(B obj)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (<span class="string">"B and B"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">show</span><span class="params">(A obj)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span>(<span class="string">"B and A"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>新建一个 C.java 继承 B.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">C</span> <span class="keyword">extends</span> <span class="title">B</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>新建一个 D.java 继承 B.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">D</span> <span class="keyword">extends</span> <span class="title">B</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>新建一个 Tesy.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Tesy</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        A a1 = <span class="keyword">new</span> A();</span><br><span class="line">        A a2 = <span class="keyword">new</span> B();</span><br><span class="line">        B b  = <span class="keyword">new</span> B();</span><br><span class="line">        C c  = <span class="keyword">new</span> C();</span><br><span class="line">        D d  = <span class="keyword">new</span> D();</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"1--&gt; "</span> + a1.show(b));</span><br><span class="line">        System.out.println(<span class="string">"2--&gt; "</span> + a1.show(c));</span><br><span class="line">        System.out.println(<span class="string">"3--&gt; "</span> + a1.show(d));</span><br><span class="line">        System.out.println(<span class="string">"4--&gt; "</span> + a2.show(b));</span><br><span class="line">        System.out.println(<span class="string">"5--&gt; "</span> + a2.show(c));</span><br><span class="line">        System.out.println(<span class="string">"6--&gt; "</span> + a2.show(d));</span><br><span class="line">        System.out.println(<span class="string">"7--&gt; "</span> + b.show(b));</span><br><span class="line">        System.out.println(<span class="string">"8--&gt; "</span> + b.show(c));</span><br><span class="line">        System.out.println(<span class="string">"9--&gt; "</span> + b.show(d));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>输出结果：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>--&gt; A and A</span><br><span class="line"><span class="number">2</span>--&gt; A and A</span><br><span class="line"><span class="number">3</span>--&gt; A adn D</span><br><span class="line"><span class="number">4</span>--&gt; B and A</span><br><span class="line"><span class="number">5</span>--&gt; B and A</span><br><span class="line"><span class="number">6</span>--&gt; A adn D</span><br><span class="line"><span class="number">7</span>--&gt; B and B</span><br><span class="line"><span class="number">8</span>--&gt; B and B</span><br><span class="line"><span class="number">9</span>--&gt; A adn D</span><br></pre></td></tr></table></figure></p>
+<p>该多态经典例子来自：<a href="https://blog.csdn.net/thinkGhoster/article/details/2307001" target="_blank" rel="noopener">Csdn-例子</a></p>
+<p>看完例子，加入一些自己的理解，通过例子，对继承链中的优先级进行分析</p>
+<p>学习完多态对于 1 - 7 都是比较好理解的，继承链中的优先级较好地体现在 8 9</p>
+<p>先对 8 进行分析：b.show(c)，b 是 B 类型的引用变量，所以 this 就代表了 B，b.show(c)，它在 B 类中发现没有找到，于是到 B 的超类中找 (super)，由于 B 的超类是 A，所以到 A 找，super.show(0)，它在 A 类中发现没找到，现在到第 3 级 –&gt; this.show((super)0)，C 的超类有 B、A ，所以 (super)0 为 B、A ，this 依然是 B，现在在 B 类中找到了 show(B obj)，因此最终会调用 B 类的 show(B obj)方法，结果是 “B and B”</p>
+<p>再对 9 进行分析：b.show(d), b 是 B 类型的引用变量，所以 this 就代表了 B，b.show(d)，它在 B 类中发现没有找到，于是到 B 的超类中找 (super)，由于 B 的超类是 A，所以到 A 找，super.show(0)，现在在 A 类中找到了 show(D obj)，因此最终会调用 A 类的 show(D obj)方法，结果是 “A and D”</p>
+<p>通过修改 B.java ，删去 show(B obj) 方法，进一步说明继承链中的优先级</p>
+<p>修改 8.java<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">show</span><span class="params">(A obj)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span>(<span class="string">"B and A"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>再运行 Tsey.java 会发现 8 的结果变成 “B and A”<br>对 8 变化的结果进行分析：当第三步在 B 类中没有找到 this.show((super)0)，再到第 4 级 –&gt; super.show((super)O)，B 的超类为 A ，所以 super 为 A ，现在在 A 类中找到了 show(A obj)，由于 b 是 B 类型的引用，在 B 类中重写了 show(A obj)，因此最终会调用 B 类的 show(A obj) 方法，结果是 “B and A”</p>
+<p>修改 8.java 再把重写的 show(A obj) 方法删去<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>再运行 Tsey.java 会发现 8 的结果变成 “A and A”<br>对 8 变化的结果进行分析：因为在第 4 级 A 类中找到 show(A obj) 方法，虽然 b 是 B 类型的引用，但是 B 类继承 A 类之后并没有重写 show(A obj) 方法，因此最终会调用 A 类的 show(A obj) 方法，结果是 “A and A”</p>
+
+      </div>
+        
+          <section class='meta' id="footer-meta">
+            <hr>
+            <div class='new-meta-box'>
+              
+                <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-06-21T08:58:06+08:00">
+                  <a class='notlink'>
+                    <i class="fas fa-pencil-alt" aria-hidden="true"></i>
+                    2019-06-21
+                  </a>
+                </div>
+              
+              
+                
+                <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Java/"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;Java</a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/封装/"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;封装</a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/继承/"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;继承</a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/多态/"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;多态</a></div>
+              
+              
+            </div>
+          </section>
+        
+
+        
+            <div class="prev-next">
+                
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous</h6>
+                            <h4>
+                                <a href="/2019/03/26/Java数组/" rel="prev" title="Java数组">
+                                  
+                                      Java数组
+                                  
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/Java/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Java</a> <a class="tag" href="/tags/数组/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>数组</a> <a class="tag" href="/tags/array/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>array</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2019/03/22/Java 类和对象/" rel="prev" title="Java类和对象">
+                                    
+                                        Java类和对象
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/Java/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Java</a> <a class="tag" href="/tags/Method/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Method</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+
+    </section>
+
+</article>
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+<br>
+
+<!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments">
+    <section class="article typo">
+      <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;Comments</h4>
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-spinner fa-spin fa-fw"></i>
+          </div>
+        </section>
+      
+    </section>
+  </article>
+
+
+
+<script>
+    window.subData = {
+        title: '理解Java面对对象的三大特性--封装、继承、多态',
+        tools: true
+    }
+</script>
+
+
+        </div>
+        <aside class='l_side'>
+            
+  
+  
+    
+      
+      
+        <section class='author'>
+  <div class='content pure'>
+    
+      <div class='avatar'>
+        <img class='avatar' src='https://res.cloudinary.com/wiyeely/image/upload/v1553152177/22922331760_97592547a8_z.jpg'/>
+      </div>
+    
+    
+      <div class='text'>
+        
+          <h2>WiyeeLu</h2>
+        
+        
+          <p>on my way to the topp.</p>
+
+        
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="mailto:WiHieree@Yahoo.com" class="social flat-btn" target="_blank" rel="external"><i class="social fas fa-envelope" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://github.com/WiyeeLu" class="social flat-btn" target="_blank" rel="external"><i class="social fab fa-github" aria-hidden="true"></i></a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+      
+    
+  
+    
+      
+      
+        
+  <section class='toc-wrapper'>
+    
+<header class='pure'>
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Table of Contents</div>
+  
+    <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+  
+</header>
+
+    <div class='content pure'>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#封装"><span class="toc-text">封装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#定义"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#封装的目的"><span class="toc-text">封装的目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#封装的好处"><span class="toc-text">封装的好处</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#继承"><span class="toc-text">继承</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用继承的场景"><span class="toc-text">使用继承的场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用继承的优点"><span class="toc-text">使用继承的优点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#多态"><span class="toc-text">多态</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念-1"><span class="toc-text">概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定义-1"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现技术"><span class="toc-text">实现技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#作用"><span class="toc-text">作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多态的例子"><span class="toc-text">多态的例子</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多态的实现"><span class="toc-text">多态的实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#多态存在的三个必要条件"><span class="toc-text">多态存在的三个必要条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基于继承实现多态"><span class="toc-text">基于继承实现多态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基于接口实现多态"><span class="toc-text">基于接口实现多态</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#继承链中的优先级"><span class="toc-text">继承链中的优先级</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+  </section>
+
+
+      
+    
+  
+
+
+        </aside>
+        <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+    <footer id="footer" class="clearfix">
+  
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="mailto:WiHieree@Yahoo.com" class="social fas fa-envelope flat-btn" target="_blank" rel="external"></a>
+        
+      
+        
+          <a href="https://github.com/WiyeeLu" class="social fab fa-github flat-btn" target="_blank" rel="external"></a>
+        
+      
+    </div>
+  
+  <br>
+  <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+  <div>Use <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a> as theme, total visits <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span> times. 
+  </div>
+</footer>
+
+    <script>setLoadingBarProgress(80);</script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+
+  <script>
+    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+    var ALGOLIA_API_KEY = "";
+    var ALGOLIA_APP_ID = "";
+    var ALGOLIA_INDEX_NAME = "";
+    var AZURE_SERVICE_NAME = "";
+    var AZURE_INDEX_NAME = "";
+    var AZURE_QUERY_KEY = "";
+    var BAIDU_API_ID = "";
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/"||"/";
+    if(!ROOT.endsWith('/'))ROOT += '/';
+  </script>
+
+
+  
+    <script async src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        const $reveal = $('.reveal');
+    		if ($reveal.length === 0) return;
+    		const sr = ScrollReveal({ distance: 0 });
+    		sr.reveal('.reveal');
+      });
+    </script>
+  
+  
+    <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        Waves.attach('.flat-btn', ['waves-button']);
+        Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+        Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+        Waves.attach('.flat-box', ['waves-block']);
+        Waves.attach('.float-box', ['waves-block', 'waves-float']);
+        Waves.attach('.waves-image');
+        Waves.init();
+      });
+    </script>
+  
+  
+    <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+  
+  
+  
+
+  
+  
+  
+  
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    
+      
+        <script src="https://cdn.jsdelivr.net/gh/xaoxuu/volantis@1/js/volantis.min.js"></script>
+      
+    
+    <script>
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+      return GUEST_INFO.indexOf(item) > -1
+    });
+    var notify = 'false' == true;
+    var verify = 'false' == true;
+    var valine = new Valine();
+    valine.init({
+      el: '#valine_container',
+      notify: notify,
+      verify: verify,
+      guest_info: guest_info,
+      
+      appId: "JNeTBifEwmUfmdnyOEBG4suK-gzGzoHsz",
+      appKey: "Oyb5B8Dne8WofJBoEDKe60nC",
+      placeholder: "on my way to the topp.",
+      pageSize:'10',
+      avatar:'mp',
+      lang:'zh-cn',
+      highlight:''
+    })
+    </script>
+  
+
+  
+    <script src="/js/app.js"></script>
+<script src="/js/search.js"></script>
+  
+
+
+
+
+
+
+    <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

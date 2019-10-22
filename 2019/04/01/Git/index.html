@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>Git 简单指导 | WiyeeLu</title>
+  
+  
+  <meta name="description" content="on my way to the topp.">
+  
+
+  
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+
+  <!-- link -->
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.6.3/css/all.min.css">
+  
+
+  
+  <link rel="shortcut icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicon.ico">
+  
+
+  
+  <link rel="stylesheet" href="/style.css">
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+    <div id="loading-bar-wrapper">
+  <div id="loading-bar" class="pure"></div>
+</div>
+
+    <script>setLoadingBarProgress(20)</script>
+    <header class="l_header pure">
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" href='/' >
+        
+          WiyeeLu
+        
+      </a>
+			<div class='menu'>
+				<ul class='h-list'>
+          
+  					
+  						<li>
+								<a id="archives"
+								 class="nav flat-box" href="/archives/">
+									<i class='fas fa-archive fa-fw'></i>&nbsp;Archives
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search" />
+						<span class="icon"><i class="fas fa-search fa-fw"></i></span>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-toc'><a class="flat-btn fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu">
+      <ul>
+          
+              
+                  <li>
+										<a id="archives" class="nav flat-box" href="/archives/">
+											<i class='fas fa-archive fa-fw'></i>&nbsp;Archives
+										</a>
+                  </li>
+              
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+    <div class="l_body">
+    <div class='container clearfix'>
+        <div class='l_main'>
+            <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+  
+<section class='meta'>
+  
+  
+  <div class="meta" id="header-meta">
+    
+      
+          <h1 class="title">Git 简单指导</h1>
+      
+    
+
+    <div class='new-meta-box'>
+      
+        <div class='new-meta-item author'>
+          <a href="https://wiyeelu.github.io">
+            <i class="fas fa-user" aria-hidden="true"></i>
+            WiyeeLu
+          </a>
+        </div>
+      
+      
+        <div class="new-meta-item date">
+          <a class='notlink'>
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            2019-04-01
+          </a>
+        </div>
+      
+      
+        
+      
+      
+        
+          <div class="new-meta-item browse busuanzi">
+            <a class='notlink'>
+              <i class="fas fa-eye" aria-hidden="true"></i>
+              <span id="busuanzi_value_page_pv">
+                <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+              </span>
+            </a>
+          </div>
+        
+      
+      
+    </div>
+    <hr>
+  </div>
+</section>
+
+    <section class="article typo">
+      <div class="article-entry" itemprop="articleBody">
+        <p>Git 是目前世界上最先进的分布式版本控制系统</p>
+<a id="more"></a>
+<h2 id="版本控制系统"><a href="#版本控制系统" class="headerlink" title="版本控制系统"></a>版本控制系统</h2><p>版本控制系统是任何能让你了解到一个文件的历史，以及它的发展过程的系统<br>这样，使用版本控制系统就可以让自己和他人协作的时候了解修改了什么，在什么时候修改等</p>
+<h2 id="集中式版本控制系统-分布式版本控制系统"><a href="#集中式版本控制系统-分布式版本控制系统" class="headerlink" title="集中式版本控制系统 / 分布式版本控制系统"></a>集中式版本控制系统 / 分布式版本控制系统</h2><h4 id="集中式版本控制系统"><a href="#集中式版本控制系统" class="headerlink" title="集中式版本控制系统"></a>集中式版本控制系统</h4><p>集中式版本控制系统，版本库是集中存放在中央服务器，需要进行操作的时候，需要先从中央服务器获取最新版本到本地的电脑再进行操作，操作完毕需要把自己修改完的版本推送到中央服务器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">缺点：</span><br><span class="line">必须要进行联网才可以工作</span><br><span class="line">对于网络的带宽和速度要求较高</span><br></pre></td></tr></table></figure></p>
+<h4 id="分布式版本控制系统"><a href="#分布式版本控制系统" class="headerlink" title="分布式版本控制系统"></a>分布式版本控制系统</h4><p>分布式版本控制系统与集中式版本控制系统最大的区别是分布式版本控制系统根本没有“中央服务器”</p>
+<ol>
+<li><p>每个人的电脑上都是一个完整的版本库<br>这样工作的时候就不需要进行联网了，例如两个人都对同一个项目进行了修改，只需要把修改后的版本推送给对方就可以看到对方修改的内容（只是举例，很少这样操作）</p>
+</li>
+<li><p>分布式版本控制系统的安全性能也更高，因为完整的版本库都存在每个人的电脑，某一个人的电脑坏了，不影响整体，可以从任一个人的电脑是进行拷贝，如果是集中式版本控制系统的中央服务器要是出了问题，所有人都工作不了</p>
+</li>
+<li><p>分布式版本控制系统通常也有一台充当“中央服务器”的电脑，但这个服务器的作用仅仅是用来方便“交换”大家的修改，没有它大家也一样干活，只是交换修改不方便而已</p>
+</li>
+</ol>
+<h2 id="Git-准备工作"><a href="#Git-准备工作" class="headerlink" title="Git 准备工作"></a>Git 准备工作</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;Your Name&quot;		//name</span><br><span class="line">git config --global user.email &quot;email@example.com&quot;		//email</span><br><span class="line">ssh-keygen -t rsa -C &quot;youremail@example.com&quot;		//SSH Key</span><br></pre></td></tr></table></figure>
+<p>SSH Key 存在电脑用户目录下的 .ssh ，id_rsa.pub(公钥)</p>
+<h2 id="创建版本库-repository"><a href="#创建版本库-repository" class="headerlink" title="创建版本库 repository"></a>创建版本库 repository</h2><p>即仓库，一个目录，里面所有的文件都被 Git 管理，每个文件的修改、删除等任何操作 Git 都可以跟踪，以便任何时刻都可以追踪历史，或者在将来某个时刻可以“还原”</p>
+<ol>
+<li><p>创建一个版本库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir gitTest  //创建文件夹</span><br><span class="line">cd gtiTest //切换到 gitLearn 目录</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过以下命令把这个目录变成 Git 管理的仓库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>Windows:<br><img src="/2019/04/01/Git/1.png" alt="Windows 创建版本库"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -ah</span><br></pre></td></tr></table></figure></p>
+<p>可以看到提示信息，多出了一个 . git 目录，这个目录是用来跟踪管理版本库的，切勿随意改动</p>
+<h4 id="把文件添加到版本库"><a href="#把文件添加到版本库" class="headerlink" title="把文件添加到版本库"></a>把文件添加到版本库</h4><p>要使用版本控制系统，文件要以纯文本方式编写文件，因为所有的版本控制系统，只能跟踪文本文件的改动，详细到哪一行修改了哪一个字，但是图片和视频等二进制文件，虽然也可以用版本控制系统管理，但是不能跟踪文件的变动，即到底改了什么，版本控制系统不知道</p>
+<ol>
+<li>在目录下新建一个 wihieree.txt 文本</li>
+<li>使用 git 把文件添加到仓库<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add wihieree.txt</span><br><span class="line">git commit -m &quot;add wihieree.txt&quot;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="/2019/04/01/Git/8.png" alt="提交修改"><br>add：提出更改（把它们添加到暂存区）<br>commit：实际提交改动，执行完毕后改动提交到 HEAD ，但是还没到远端仓库</p>
+<h4 id="查看仓库当前状态"><a href="#查看仓库当前状态" class="headerlink" title="查看仓库当前状态"></a>查看仓库当前状态</h4><p>修改 wihieree.txt 文件，添加 Wihieree gogogo!! 后运行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure></p>
+<p>该命令是让我们查看当前仓库的状态：<br><img src="/2019/04/01/Git/2.png" alt="status 查看仓库当前状态"><br>由输出信息可以得知当前仓库的状态，wihieree.txt 被修改过，但是该修改还没有被提交<br>如果想进一步查看修改了什么就可以使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2019/04/01/Git/3.png" alt="查看仓库做过什么修改"><br>从输出可以得知我们在第 1 行增加了一句 wihieree gogogo!!<br>提交修改和文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add wihieree.txt</span><br><span class="line">git commit -m &quot;wihieree gogogo!!&quot;</span><br></pre></td></tr></table></figure></p>
+<h4 id="log-查看日志"><a href="#log-查看日志" class="headerlink" title="log 查看日志"></a>log 查看日志</h4><p>查看日志，可以让我们看到版本的历史记录，知道什么时候哪个版本作了什么修改<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2019/04/01/Git/4.png" alt="查看日志 log"><br>可以看到有 2 次提交，最新的一次 wihieree gogogogit add wihieree.txt<br>最早的一次是 add wihieree.txt    Apr 2 09:39:01 2019<br><strong>log</strong><br>如果想了解本地仓库的历史记录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log</span><br></pre></td></tr></table></figure></p>
+<p>可以添加一些参数来修改他的输出，从而得到自己想要的结果:</p>
+<ol>
+<li><p>只看某一个人的提交记录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --author=bob</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>一个压缩后的每一条提交记录只占一行的输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --pretty=oneline</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过 ASCII 艺术的树形结构来展示所有的分支, 每个分支都标示了他的名字和标签</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --graph --oneline --decorate --all</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>看看哪些文件改变了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --name-status</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>更多参数参考<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --help</span><br></pre></td></tr></table></figure></p>
+<h4 id="版本退回"><a href="#版本退回" class="headerlink" title="版本退回"></a>版本退回</h4><p>HEAD 表示当前版本，上一个版本是 HEAD^ ,上上个版本是 HEAD^^ ，上 20 个版本 HEAD~20 ,以此类推<br>退回上上个版本，再进行查看 wihieree.txt<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard HEAD^</span><br><span class="line">cat wihieree.txt</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2019/04/01/Git/5.png" alt="版本退回"><br>可以看到版本被退回， wihieree gogogo!! 不见了<br>若想退回最新的版本，可以回滚找到最新版本的 HEAD，例如我这里是 37c54<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard 37c54</span><br></pre></td></tr></table></figure></p>
+<p>这样就可以恢复到最新的版本<br>git reset 既可以回退版本，也可以把暂存区的修改回退到工作区<br>使用 git reflog 命令可以查看输入的每一条命令，这样就可以找到以前版本的 HEAD 使用上面的办法进行回退<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reflog</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p>当在工作区把某个文件修改错误，想丢弃工作区的修改时，使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -- &lt;file&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如上修改错误还进行 git add 提交到了暂存区，想丢弃修改时，使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD &lt;file&gt;</span><br><span class="line">git checkout -- &lt;file&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>hard/mixed/soft</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hard：回退一个版本,清空暂存区,将已提交的内容的版本恢复到本地,本地的文件也将被恢复的版本替换</span><br><span class="line">mixed(默认)：回退一个版本,且会将暂存区的内容和本地已提交的内容全部恢复到未暂存的状态</span><br><span class="line">				不影响原来本地文件(未提交的也不受影响) </span><br><span class="line">soft:	回退一个版本,不清空暂存区,将已提交的内容恢复到暂存区</span><br><span class="line">				不影响原来本地的文件(未提交的也不受影响)</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2019/04/01/Git/9.png" alt><br>Git 工作区、暂存区、版本库之间的关系如上图所示<br><a href="https://www.cnblogs.com/lianghe01/p/5846525.html" target="_blank" rel="noopener">如想进一步了解工作区、暂存区、版本库之间的关系可以点击此处</a><br><a href="https://www.cnblogs.com/kidsitcn/p/4513297.html" target="_blank" rel="noopener">hard/mixed/soft 区别深解可以点击此处</a></p>
+<h4 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h4><p>新建一个 test.txt ,并提交，然后对它进行删除<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm test.txt</span><br></pre></td></tr></table></figure></p>
+<p>再查看仓库状态<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure></p>
+<p>这时候就会提示你哪些文件被删除了<br><img src="/2019/04/01/Git/6.png" alt="查看哪些文件被删除"><br>此时可以选择 继续删除文件 或者 从版本库里恢复最新版本的文件（以前版本的找不到，只可以恢复最新版本）</p>
+<ol>
+<li><p>继续删除</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm test.txt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删错了，想恢复</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -- test.txt</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h2><p>远程仓库是 Git 的杀手锏之一</p>
+<h4 id="远程仓库实际应用"><a href="#远程仓库实际应用" class="headerlink" title="远程仓库实际应用"></a>远程仓库实际应用</h4><p>用一台电脑充当服务器，全天候开机，其他人都从这个服务器仓库克隆一份到自己本地的电脑上，并且各自把各自的提交推送到服务器仓库里，也从服务器仓库中拉取别人的提交</p>
+<h4 id="Github-营运而生"><a href="#Github-营运而生" class="headerlink" title="Github 营运而生"></a>Github 营运而生</h4><p>GitHub 是通过 Git 进行版本控制的软件源代码托管服务，只需要注册一个 GitHub 账号，就可以免费获得 Git 远程仓库<br>！！该博客也是使用 Github 进行搭建<br>注册完账号，网上寻找添加 SSH Key 的教程，就可以把本地 Git 仓库传输到 Github 仓库<br>若有在不同的电脑上进行提交的需求，也可以把那台电脑的 SHH Key 添加到 Github，这样每台电脑都可以把本地 Git 仓库推送到 Github 仓库上</p>
+<h4 id="推送本地-Git-仓库到-Github-仓库"><a href="#推送本地-Git-仓库到-Github-仓库" class="headerlink" title="推送本地 Git 仓库到 Github 仓库"></a>推送本地 Git 仓库到 Github 仓库</h4><p>在 Github 网站上新建一个 repo ，再把本地 Git 仓库关联到 Github 仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@server-name:path/repo-name.git</span><br></pre></td></tr></table></figure></p>
+<p>关联后，推送 master 分支的所有内容（第一次）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure></p>
+<p>后续提交新内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin master</span><br></pre></td></tr></table></figure></p>
+<p>这就体现了分布式版本系统的好处，本地工作根本和远程库没关系，没有网络也可以工作，只要在有网络的时候推送到远程库就可以了</p>
+<h4 id="从远程库克隆"><a href="#从远程库克隆" class="headerlink" title="从远程库克隆"></a>从远程库克隆</h4><p>首先在 Github 新建一个 repo，300498-Stock-analysis<br><img src="/2019/04/01/Git/7.png" alt="Github 新建 repo"><br>克隆一个本地库 git clone<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@github.com:WiyeeLu/300498-Stock-analysis.git</span><br></pre></td></tr></table></figure></p>
+<p>Git 支持多种协议，包括 https ，但是通过 ssh 支持的原生 git 协议速度最快</p>
+<h2 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h2><p>分支可以理解为漫威的平行宇宙，我现在学 Java ，另一个平行宇宙的我在学 Python，这时的两个我互不干扰，不过在某个时间点，两个平行宇宙合并了，那时候的我就学会了 Java 又学会了 Python<br>分支是用来将特性开发绝缘开来的。在创建仓库的时候，master 是“默认的”分支。在其他分支上进行开发，完成后再将它们合并到主分支上<br>HEAD 严格来说不是指向提交，而是指向 master，master 才是指向提交的，所以 HEAD 指向的就是当前分支<br><img src="/2019/04/01/Git/10.png" alt="分支"></p>
+<h4 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h4><p>创建 dev 分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b dev</span><br></pre></td></tr></table></figure></p>
+<p>使用 git branch 查看当前分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">E:\gitLearn&gt;git branch</span><br><span class="line">* dev</span><br><span class="line">  master</span><br></pre></td></tr></table></figure></p>
+<p>前面带有 * 号的表示当前分支<br>在 wihieree.txt 上加上一行 lalala dev<br>进行提交：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add wihieree.txt</span><br><span class="line">git commit -m &quot;add branch dev&quot;</span><br></pre></td></tr></table></figure></p>
+<p>若工作完成，切换回 master 分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br></pre></td></tr></table></figure></p>
+<p>把 dev 分支的工作成果合并到 master 分支上<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge dev</span><br></pre></td></tr></table></figure></p>
+<p>合并完成就可以删除 dev 分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -d dev</span><br></pre></td></tr></table></figure></p>
+<p>删除后可查看 branch<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></table></figure></p>
+<p>查看是否只剩 master 分支</p>
+<h4 id="解决冲突"><a href="#解决冲突" class="headerlink" title="解决冲突"></a>解决冲突</h4><p>当Git无法自动合并分支时，就必须首先解决冲突。解决冲突后，再提交，合并完成<br>从远程分支抓取最新的提交（更新你的本地仓库至最新改动）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br></pre></td></tr></table></figure></p>
+<p>建立本地分支与远程分支的连接<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch --set-upstream dev origin/dev        //dev 为分支名</span><br></pre></td></tr></table></figure></p>
+<p>解决冲突就是把Git合并失败的文件手动编辑为我们希望的内容，再提交<br>用 git log –graph 命令可以看到分支合并图</p>
+<h4 id="分支管理策略"><a href="#分支管理策略" class="headerlink" title="分支管理策略"></a>分支管理策略</h4><p>Git 分支十分强大，在团队开发中应该充分应用。<br>合并分支时，加上 –no-ff 参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而 fast forward 合并就看不出来曾经做过合并</p>
+<h4 id="BUG-分支"><a href="#BUG-分支" class="headerlink" title="BUG 分支"></a>BUG 分支</h4><p>修复 bug 时，我们会通过创建新的 bug 分支进行修复，然后合并，最后删除；<br>当手头工作没有完成时，先把工作现场 git stash 一下，然后去修复 bug，修复后，再 git stash pop ，回到工作现场</p>
+<h4 id="Feature-分支"><a href="#Feature-分支" class="headerlink" title="Feature 分支"></a>Feature 分支</h4><p>开发一个新feature，最好新建一个分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b feature-vulcan</span><br></pre></td></tr></table></figure></p>
+<p>如果要丢弃一个没有被合并过的分支，可以通过 git branch -D <name> 强行删除</name></p>
+<h4 id="多人协作（推送）"><a href="#多人协作（推送）" class="headerlink" title="多人协作（推送）"></a>多人协作（推送）</h4><p>查看远程库信息，使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote -v</span><br></pre></td></tr></table></figure></p>
+<p>本地新建的分支如果不推送到远程，对其他人就是不可见的<br>从本地推送分支，使用 git push origin branch-name ，如果推送失败，先用 git pull 抓取远程的新提交；<br>在本地创建和远程分支对应的分支，使用 git checkout -b branch-name origin/branch-name，本地和远程分支的名称最好一致<br>建立本地分支和远程分支的关联，使用 git branch –set-upstream branch-name origin/branch-name；<br>从远程抓取分支，使用 git pull，如果有冲突，要先处理冲突</p>
+<h4 id="Rebase"><a href="#Rebase" class="headerlink" title="Rebase"></a>Rebase</h4><p>rebase 操作可以把本地未 push 的分叉提交历史整理成直线<br>rebase 的目的是使得我们在查看历史提交的变化时更容易，因为分叉的提交需要三方对比</p>
+<h2 id="标签管理"><a href="#标签管理" class="headerlink" title="标签管理"></a>标签管理</h2><p>发布一个版本时，我们通常先在版本库中打一个标签（tag），这样，就唯一确定了打标签时刻的版本。将来无论什么时候，取某个标签的版本，就是把那个打标签的时刻的历史版本取出来。所以，标签也是版本库的一个快照<br>tag 就是一个让人容易记住的有意义的名字，它跟某个 commit 绑在一起</p>
+<p>####新建标签<br>新建一个标签，默认为HEAD，也可以指定一个commit id<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag &lt;tagname&gt;</span><br></pre></td></tr></table></figure></p>
+<p>指定标签信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -a &lt;tagname&gt; -m &quot;blablabla...&quot;</span><br></pre></td></tr></table></figure></p>
+<p>查看所有标签<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag</span><br></pre></td></tr></table></figure></p>
+<h4 id="替换本地改动"><a href="#替换本地改动" class="headerlink" title="替换本地改动"></a>替换本地改动</h4><p>若操作失误，可以使用下面的命令替换掉本地改动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -- &lt;filename&gt;</span><br></pre></td></tr></table></figure></p>
+<p>此命令会使用 HEAD 中的最新内容替换掉你的工作目录中的文件<br>已添加到暂存区的改动以及新文件都不会受到影响</p>
+<p>假如想丢弃在本地的所有改动与提交，可以到服务器上获取最新的版本历史，并将本地主分支指向它<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git fetch origin</span><br><span class="line">git reset --hard origin/master</span><br></pre></td></tr></table></figure></p>
+<h2 id="Git-常用命令"><a href="#Git-常用命令" class="headerlink" title="Git 常用命令"></a>Git 常用命令</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">mkdir		<span class="comment">//创建新目录</span></span><br><span class="line">git init    <span class="comment">//初始化一个 Git 仓库</span></span><br><span class="line">git add &lt;fileName&gt;      <span class="comment">//提交修改，可提交多次，把文件添加到暂存区</span></span><br><span class="line">git commit -m &lt;message&gt;     <span class="comment">//提交所有文件，把暂存区的所有内容提交到当前分支</span></span><br><span class="line">git status      <span class="comment">//查看仓库当前的状态</span></span><br><span class="line">git log     <span class="comment">//查看日志，什么时候修改了什么</span></span><br><span class="line">cat &lt;file&gt;		<span class="comment">//查看文件内容</span></span><br><span class="line">git reset --hard commit_id      <span class="comment">//可以在不同的版本间恢复</span></span><br><span class="line">git reflog      <span class="comment">//查看命令历史，以便要回到未来的某一个版本</span></span><br><span class="line">git diff HEAD -- wihieree.txt       <span class="comment">//查看工作区和版本库里面最新版本的区别</span></span><br><span class="line">git checkout -- wihieree.txt        <span class="comment">//把 wihieree.txt 文件在工作区的修改全部撤销，即回到最近一次 git commit 或 git add 时的状态</span></span><br><span class="line">git reset HEAD &lt;file&gt;       <span class="comment">//在 commit 之前，可以使用这个命令把暂存区的修改撤销掉，重新放回工作区</span></span><br><span class="line">git rm &lt;file&gt;     <span class="comment">//删除一个文件</span></span><br><span class="line">git checkout -- &lt;file&gt;      //删错了文件，只要版本库里还有，就可以使用该命令恢复版本库里的最新版本</span><br><span class="line">git remote add origin git@server-name:path/repo-name.git    //把本地 Git 仓库关联到 Github 仓库</span><br><span class="line">    eg. git remote add origin git@github.com:WiyeeLu/Wens-Stock-analysis.git</span><br><span class="line">git clone username@host:/path/to/repository		//把 GitHub 仓库克隆到本地</span><br><span class="line">git push -u origin master       //推送 master 分支的所有内容（第一次）</span><br><span class="line">git push origin master      //后续提交新内容</span><br><span class="line">git branch      //查看分支</span><br><span class="line">git branch &lt;name&gt;       //创建分支</span><br><span class="line">git checkout &lt;name&gt;     //切换分支</span><br><span class="line">git checkout -b &lt;name&gt;      //创建 + 切换分支</span><br><span class="line">git merge &lt;name&gt;        //合并某分支到当前分支</span><br><span class="line">git branch -d &lt;name&gt;        //删除分支</span><br><span class="line">git log --graph     //查看分支合并图</span><br><span class="line">git merge --no-ff -m "merge with no-ff" dev     //用普通模式合并，合并后的历史有分支</span><br><span class="line">git stash       //把当前工作现场“存储”起来</span><br><span class="line">git stash pop       //回到工作现场</span><br><span class="line">git remote -v       //查看远程库信息</span><br><span class="line">git push origin branch-name     //从本地推送分支</span><br><span class="line">git pull        //抓取远程的新提交（更新你的本地仓库至最新改动）</span><br><span class="line">git checkout -b branch-name origin/branch-name      //本地创建和远程分支对应的分支</span><br><span class="line">git branch --set-upstream branch-name origin/branch-name    //建立本地分支和远程分支的关联</span><br><span class="line">git rebase      //可以把本地未 push 的分叉提交历史整理成直线</span><br><span class="line">git tag &lt;tagname&gt;       //用于新建一个标签，默认为HEAD，也可以指定一个commit id</span><br><span class="line">git tag -a &lt;tagname&gt; -m "blablabla..."      //可以指定标签信息</span><br><span class="line">git tag     //可以查看所有标签</span><br><span class="line">git push origin &lt;tagname&gt;       //可以推送一个本地标签</span><br><span class="line">git push origin --tags      //可以推送全部未推送过的本地标签</span><br><span class="line">git tag -d &lt;tagname&gt;        //可以删除一个本地标签</span><br><span class="line">git push origin :refs/tags/&lt;tagname&gt;        //可以删除一个远程标签</span><br></pre></td></tr></table></figure>
+
+      </div>
+        
+          <section class='meta' id="footer-meta">
+            <hr>
+            <div class='new-meta-box'>
+              
+                <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-06-21T08:58:04+08:00">
+                  <a class='notlink'>
+                    <i class="fas fa-pencil-alt" aria-hidden="true"></i>
+                    2019-06-21
+                  </a>
+                </div>
+              
+              
+                
+                <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Git/"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;Git</a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Github/"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;Github</a></div>
+              
+              
+            </div>
+          </section>
+        
+
+        
+            <div class="prev-next">
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2019/03/31/Java图形用户界面基础/" rel="prev" title="Java图形用户界面基础">
+                                    
+                                        Java图形用户界面基础
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/Java/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Java</a> <a class="tag" href="/tags/GUI/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>GUI</a> <a class="tag" href="/tags/API/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>API</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+
+    </section>
+
+</article>
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+<br>
+
+<!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments">
+    <section class="article typo">
+      <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;Comments</h4>
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-spinner fa-spin fa-fw"></i>
+          </div>
+        </section>
+      
+    </section>
+  </article>
+
+
+
+<script>
+    window.subData = {
+        title: 'Git 简单指导',
+        tools: true
+    }
+</script>
+
+
+        </div>
+        <aside class='l_side'>
+            
+  
+  
+    
+      
+      
+        <section class='author'>
+  <div class='content pure'>
+    
+      <div class='avatar'>
+        <img class='avatar' src='https://res.cloudinary.com/wiyeely/image/upload/v1553152177/22922331760_97592547a8_z.jpg'/>
+      </div>
+    
+    
+      <div class='text'>
+        
+          <h2>WiyeeLu</h2>
+        
+        
+          <p>on my way to the topp.</p>
+
+        
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="mailto:WiHieree@Yahoo.com" class="social flat-btn" target="_blank" rel="external"><i class="social fas fa-envelope" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://github.com/WiyeeLu" class="social flat-btn" target="_blank" rel="external"><i class="social fab fa-github" aria-hidden="true"></i></a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+      
+    
+  
+    
+      
+      
+        
+  <section class='toc-wrapper'>
+    
+<header class='pure'>
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Table of Contents</div>
+  
+    <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+  
+</header>
+
+    <div class='content pure'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#版本控制系统"><span class="toc-text">版本控制系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#集中式版本控制系统-分布式版本控制系统"><span class="toc-text">集中式版本控制系统 / 分布式版本控制系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#集中式版本控制系统"><span class="toc-text">集中式版本控制系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#分布式版本控制系统"><span class="toc-text">分布式版本控制系统</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-准备工作"><span class="toc-text">Git 准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建版本库-repository"><span class="toc-text">创建版本库 repository</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#把文件添加到版本库"><span class="toc-text">把文件添加到版本库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查看仓库当前状态"><span class="toc-text">查看仓库当前状态</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#log-查看日志"><span class="toc-text">log 查看日志</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#版本退回"><span class="toc-text">版本退回</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#删除文件"><span class="toc-text">删除文件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#远程仓库"><span class="toc-text">远程仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#远程仓库实际应用"><span class="toc-text">远程仓库实际应用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Github-营运而生"><span class="toc-text">Github 营运而生</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#推送本地-Git-仓库到-Github-仓库"><span class="toc-text">推送本地 Git 仓库到 Github 仓库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#从远程库克隆"><span class="toc-text">从远程库克隆</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分支管理"><span class="toc-text">分支管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#创建分支"><span class="toc-text">创建分支</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解决冲突"><span class="toc-text">解决冲突</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#分支管理策略"><span class="toc-text">分支管理策略</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#BUG-分支"><span class="toc-text">BUG 分支</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Feature-分支"><span class="toc-text">Feature 分支</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#多人协作（推送）"><span class="toc-text">多人协作（推送）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Rebase"><span class="toc-text">Rebase</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标签管理"><span class="toc-text">标签管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#替换本地改动"><span class="toc-text">替换本地改动</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-常用命令"><span class="toc-text">Git 常用命令</span></a></li></ol>
+    </div>
+  </section>
+
+
+      
+    
+  
+
+
+        </aside>
+        <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+    <footer id="footer" class="clearfix">
+  
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="mailto:WiHieree@Yahoo.com" class="social fas fa-envelope flat-btn" target="_blank" rel="external"></a>
+        
+      
+        
+          <a href="https://github.com/WiyeeLu" class="social fab fa-github flat-btn" target="_blank" rel="external"></a>
+        
+      
+    </div>
+  
+  <br>
+  <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+  <div>Use <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a> as theme, total visits <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span> times. 
+  </div>
+</footer>
+
+    <script>setLoadingBarProgress(80);</script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+
+  <script>
+    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+    var ALGOLIA_API_KEY = "";
+    var ALGOLIA_APP_ID = "";
+    var ALGOLIA_INDEX_NAME = "";
+    var AZURE_SERVICE_NAME = "";
+    var AZURE_INDEX_NAME = "";
+    var AZURE_QUERY_KEY = "";
+    var BAIDU_API_ID = "";
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/"||"/";
+    if(!ROOT.endsWith('/'))ROOT += '/';
+  </script>
+
+
+  
+    <script async src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        const $reveal = $('.reveal');
+    		if ($reveal.length === 0) return;
+    		const sr = ScrollReveal({ distance: 0 });
+    		sr.reveal('.reveal');
+      });
+    </script>
+  
+  
+    <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        Waves.attach('.flat-btn', ['waves-button']);
+        Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+        Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+        Waves.attach('.flat-box', ['waves-block']);
+        Waves.attach('.float-box', ['waves-block', 'waves-float']);
+        Waves.attach('.waves-image');
+        Waves.init();
+      });
+    </script>
+  
+  
+    <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+  
+  
+  
+
+  
+  
+  
+  
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    
+      
+        <script src="https://cdn.jsdelivr.net/gh/xaoxuu/volantis@1/js/volantis.min.js"></script>
+      
+    
+    <script>
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+      return GUEST_INFO.indexOf(item) > -1
+    });
+    var notify = 'false' == true;
+    var verify = 'false' == true;
+    var valine = new Valine();
+    valine.init({
+      el: '#valine_container',
+      notify: notify,
+      verify: verify,
+      guest_info: guest_info,
+      
+      appId: "JNeTBifEwmUfmdnyOEBG4suK-gzGzoHsz",
+      appKey: "Oyb5B8Dne8WofJBoEDKe60nC",
+      placeholder: "on my way to the topp.",
+      pageSize:'10',
+      avatar:'mp',
+      lang:'zh-cn',
+      highlight:''
+    })
+    </script>
+  
+
+  
+    <script src="/js/app.js"></script>
+<script src="/js/search.js"></script>
+  
+
+
+
+
+
+
+    <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

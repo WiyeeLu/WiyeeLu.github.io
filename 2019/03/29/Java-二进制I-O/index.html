@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>Java 二进制I/O | WiyeeLu</title>
+  
+  
+  <meta name="description" content="on my way to the topp.">
+  
+
+  
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+
+  <!-- link -->
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.6.3/css/all.min.css">
+  
+
+  
+  <link rel="shortcut icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicon.ico">
+  
+
+  
+  <link rel="stylesheet" href="/style.css">
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+    <div id="loading-bar-wrapper">
+  <div id="loading-bar" class="pure"></div>
+</div>
+
+    <script>setLoadingBarProgress(20)</script>
+    <header class="l_header pure">
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" href='/' >
+        
+          WiyeeLu
+        
+      </a>
+			<div class='menu'>
+				<ul class='h-list'>
+          
+  					
+  						<li>
+								<a id="archives"
+								 class="nav flat-box" href="/archives/">
+									<i class='fas fa-archive fa-fw'></i>&nbsp;Archives
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search" />
+						<span class="icon"><i class="fas fa-search fa-fw"></i></span>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-toc'><a class="flat-btn fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu">
+      <ul>
+          
+              
+                  <li>
+										<a id="archives" class="nav flat-box" href="/archives/">
+											<i class='fas fa-archive fa-fw'></i>&nbsp;Archives
+										</a>
+                  </li>
+              
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+    <div class="l_body">
+    <div class='container clearfix'>
+        <div class='l_main'>
+            <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+  
+<section class='meta'>
+  
+  
+  <div class="meta" id="header-meta">
+    
+      
+          <h1 class="title">Java 二进制I/O</h1>
+      
+    
+
+    <div class='new-meta-box'>
+      
+        <div class='new-meta-item author'>
+          <a href="https://wiyeelu.github.io">
+            <i class="fas fa-user" aria-hidden="true"></i>
+            WiyeeLu
+          </a>
+        </div>
+      
+      
+        <div class="new-meta-item date">
+          <a class='notlink'>
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            2019-03-29
+          </a>
+        </div>
+      
+      
+        
+      
+      
+        
+          <div class="new-meta-item browse busuanzi">
+            <a class='notlink'>
+              <i class="fas fa-eye" aria-hidden="true"></i>
+              <span id="busuanzi_value_page_pv">
+                <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+              </span>
+            </a>
+          </div>
+        
+      
+      
+    </div>
+    <hr>
+  </div>
+</section>
+
+    <section class="article typo">
+      <div class="article-entry" itemprop="articleBody">
+        <p>Java 文本与二进制 I/O 总结(Java 流 Stream、文件 File 和 IO)</p>
+<a id="more"></a>
+<h2 id="文本-I-O-与二进制-I-O"><a href="#文本-I-O-与二进制-I-O" class="headerlink" title="文本 I/O 与二进制 I/O"></a>文本 I/O 与二进制 I/O</h2><p>二进制 I/O 不涉及编码和解码，因此更高效<br>文本 I/O 建立在二进制 I/O 的基础之上，它提供一层抽象，用于字符层次自动进行的编码和解码<br>Java 的类文件存储为二进制文件。因为二进制文件与主机编码方案无关，可移植，在任何机器上的 Java 程序可以读取 Java 程序创建的二进制文件。</p>
+<h2 id="流"><a href="#流" class="headerlink" title="流"></a>流</h2><p>流 (stream) 的概念源于 UNIX 中管道 (pipe) 的概念。在 UNIX 中，管道是一条不间断的字节流，用来实现程序或进程间的通信，或读写外围设备、外部文件等<br>形象的比喻：水流    文件 ——– 程序，文件和程序之间连接一个管道，水流就在之间形成了，自然就有方向，可以流进，也可以流出，即  流  就是一个管道里面有流水，这个管道连接了文件和程序</p>
+<h4 id="数据流分类"><a href="#数据流分类" class="headerlink" title="数据流分类"></a>数据流分类</h4><p>流序列中的数据既可以是未经加工的原始二进制数据，也可以是经一定编码处理后符合某种格式规定的特定数据。因此Java中的流分为两种：</p>
+<ul>
+<li>字节流：数据流中最小的数据单元是字节</li>
+<li>字符流：数据流中最小的数据单元是字符， Java 中的字符是 Unicode 编码，一个字符占用两个字节<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">    字节流                  字符流</span><br><span class="line">输入流 InputStream          Reader</span><br><span class="line">输出流 OutputStream         Writer</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>Java 的字符流，采用的是 Unicode 标准，16 位，两个字节<br>reader 是所有读取字符串输入流的祖先，而 writer 是所有输出字符串输出流的根类。 </p>
+<h2 id="I-O-概览"><a href="#I-O-概览" class="headerlink" title="I/O 概览"></a>I/O 概览</h2><p>Java.io 包中最重要的就是 5 个类和 1 个接口：</p>
+<ul>
+<li>类：File      OutputStream        InputStream     Writer      Reader</li>
+<li>接口：Serializable</li>
+</ul>
+<h4 id="I-O-层次"><a href="#I-O-层次" class="headerlink" title="I/O 层次"></a>I/O 层次</h4><p>分为 3 层<br><img src="/2019/03/29/Java-二进制I-O/1.png" alt="I/O 层次"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1. File（文件特征与管理）：用于文件或者目录的描述信息，例如生成新目录，修改文件名，删除文件，判断文件所在路径等</span><br><span class="line">2. InputStream（字节流，二进制格式操作）：抽象类，基于字节的输入操作，是所有输入流的父类。定义了所有输入流都具有的共同特征</span><br><span class="line">3. OutputStream（字节流，二进制格式操作）：抽象类。基于字节的输出操作。是所有输出流的父类。定义了所有输出流都具有的共同特征</span><br><span class="line">4. Reader（字符流，文本格式操作）：抽象类，基于字符的输入操作</span><br><span class="line">5. Writer（字符流，文本格式操作）：抽象类，基于字符的输出操作</span><br><span class="line">6. RandomAccessFile（随机文件操作）：它的功能丰富，可以从文件的任意位置进行存取（输入输出）操作</span><br></pre></td></tr></table></figure></p>
+<h2 id="I-O-流"><a href="#I-O-流" class="headerlink" title="I/O 流"></a>I/O 流</h2><p>java.io 包里有 4 个基本类：InputStream、OutputStream 及 Reader、Writer 类，它们分别处理字节流和字符流，其他流都是由这 4 个派生出来的：<br><img src="/2019/03/29/Java-二进制I-O/2.png" alt="I/O 流"></p>
+<h2 id="InputStream-类和-OutputStream-类"><a href="#InputStream-类和-OutputStream-类" class="headerlink" title="InputStream 类和 OutputStream 类"></a>InputStream 类和 OutputStream 类</h2><p>InputStream 为字节输入流，它本身为一个抽象类，必须依靠其子类实现各种功能，此抽象类是表示字节输入流的所有类的超类。继承自 InputStream 的流都是向程序中输入数据的，且数据单位为字节（8bit）<br>OutputStream 和 InputStream 是相对应的</p>
+<h4 id="FileInputStream-和-FileOutputStream"><a href="#FileInputStream-和-FileOutputStream" class="headerlink" title="FileInputStream 和 FileOutputStream"></a>FileInputStream 和 FileOutputStream</h4><p>一个流被定义为一个数据序列，输入流用于从源读取数据，输出流用于向目标写数据</p>
+<h6 id="FileInputStream"><a href="#FileInputStream" class="headerlink" title="FileInputStream"></a>FileInputStream</h6><p>FileInputStream 用于从文件读取数据，它的对象可以用关键字 new 来创建<br>有多种构造方法可用来创建对象：</p>
+<ol>
+<li><p>可以使用字符串类型的文件名来创建一个输入流对象来读取文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">InputStream f = <span class="keyword">new</span> FileInputStream(<span class="string">"C:/kt"</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>也可以使用一个文件对象来创建一个输入流对象来读取文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">File f = <span class="keyword">new</span> File(<span class="string">"C:/kt"</span>);</span><br><span class="line">InputStream out = <span class="keyword">new</span> FileInputStream(f);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h6 id="FileOutputStream"><a href="#FileOutputStream" class="headerlink" title="FileOutputStream"></a>FileOutputStream</h6><p>该类用来创建一个文件并向文件中写数据<br>如果该流在打开文件进行输出前，目标文件不存在，那么该流会创建该文件<br>有两个构造方法可以用来创建 FileOutputStream 对象</p>
+<ol>
+<li><p>使用字符串类型的文件名来创建一个输出流对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">OutputStream f = <span class="keyword">new</span> FileOutputStream(<span class="string">"C:/kt"</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>也可以使用一个文件对象来创建一个输出流来写文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">File f = <span class="keyword">new</span> File(<span class="string">"C:/kt"</span>);</span><br><span class="line">OutputStream f = <span class="keyword">new</span> FileOutputStream(f);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      </div>
+        
+          <section class='meta' id="footer-meta">
+            <hr>
+            <div class='new-meta-box'>
+              
+                <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-06-21T08:58:04+08:00">
+                  <a class='notlink'>
+                    <i class="fas fa-pencil-alt" aria-hidden="true"></i>
+                    2019-06-21
+                  </a>
+                </div>
+              
+              
+                
+                <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Java/"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;Java</a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/I-O/"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;I/O</a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/二进制/"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;二进制</a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/文件/"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;文件</a></div>
+              
+              
+            </div>
+          </section>
+        
+
+        
+            <div class="prev-next">
+                
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous</h6>
+                            <h4>
+                                <a href="/2019/03/31/Java图形用户界面基础/" rel="prev" title="Java图形用户界面基础">
+                                  
+                                      Java图形用户界面基础
+                                  
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/Java/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Java</a> <a class="tag" href="/tags/GUI/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>GUI</a> <a class="tag" href="/tags/API/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>API</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2019/03/29/Java-String类/" rel="prev" title="Java String类">
+                                    
+                                        Java String类
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/Java/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Java</a> <a class="tag" href="/tags/String/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>String</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+
+    </section>
+
+</article>
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+<br>
+
+<!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments">
+    <section class="article typo">
+      <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;Comments</h4>
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-spinner fa-spin fa-fw"></i>
+          </div>
+        </section>
+      
+    </section>
+  </article>
+
+
+
+<script>
+    window.subData = {
+        title: 'Java 二进制I/O',
+        tools: true
+    }
+</script>
+
+
+        </div>
+        <aside class='l_side'>
+            
+  
+  
+    
+      
+      
+        <section class='author'>
+  <div class='content pure'>
+    
+      <div class='avatar'>
+        <img class='avatar' src='https://res.cloudinary.com/wiyeely/image/upload/v1553152177/22922331760_97592547a8_z.jpg'/>
+      </div>
+    
+    
+      <div class='text'>
+        
+          <h2>WiyeeLu</h2>
+        
+        
+          <p>on my way to the topp.</p>
+
+        
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="mailto:WiHieree@Yahoo.com" class="social flat-btn" target="_blank" rel="external"><i class="social fas fa-envelope" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://github.com/WiyeeLu" class="social flat-btn" target="_blank" rel="external"><i class="social fab fa-github" aria-hidden="true"></i></a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+      
+    
+  
+    
+      
+      
+        
+  <section class='toc-wrapper'>
+    
+<header class='pure'>
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Table of Contents</div>
+  
+    <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+  
+</header>
+
+    <div class='content pure'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#文本-I-O-与二进制-I-O"><span class="toc-text">文本 I/O 与二进制 I/O</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#流"><span class="toc-text">流</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#数据流分类"><span class="toc-text">数据流分类</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I-O-概览"><span class="toc-text">I/O 概览</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#I-O-层次"><span class="toc-text">I/O 层次</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I-O-流"><span class="toc-text">I/O 流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#InputStream-类和-OutputStream-类"><span class="toc-text">InputStream 类和 OutputStream 类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#FileInputStream-和-FileOutputStream"><span class="toc-text">FileInputStream 和 FileOutputStream</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#FileInputStream"><span class="toc-text">FileInputStream</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#FileOutputStream"><span class="toc-text">FileOutputStream</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+    </div>
+  </section>
+
+
+      
+    
+  
+
+
+        </aside>
+        <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+    <footer id="footer" class="clearfix">
+  
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="mailto:WiHieree@Yahoo.com" class="social fas fa-envelope flat-btn" target="_blank" rel="external"></a>
+        
+      
+        
+          <a href="https://github.com/WiyeeLu" class="social fab fa-github flat-btn" target="_blank" rel="external"></a>
+        
+      
+    </div>
+  
+  <br>
+  <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+  <div>Use <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a> as theme, total visits <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span> times. 
+  </div>
+</footer>
+
+    <script>setLoadingBarProgress(80);</script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+
+  <script>
+    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+    var ALGOLIA_API_KEY = "";
+    var ALGOLIA_APP_ID = "";
+    var ALGOLIA_INDEX_NAME = "";
+    var AZURE_SERVICE_NAME = "";
+    var AZURE_INDEX_NAME = "";
+    var AZURE_QUERY_KEY = "";
+    var BAIDU_API_ID = "";
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/"||"/";
+    if(!ROOT.endsWith('/'))ROOT += '/';
+  </script>
+
+
+  
+    <script async src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        const $reveal = $('.reveal');
+    		if ($reveal.length === 0) return;
+    		const sr = ScrollReveal({ distance: 0 });
+    		sr.reveal('.reveal');
+      });
+    </script>
+  
+  
+    <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        Waves.attach('.flat-btn', ['waves-button']);
+        Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+        Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+        Waves.attach('.flat-box', ['waves-block']);
+        Waves.attach('.float-box', ['waves-block', 'waves-float']);
+        Waves.attach('.waves-image');
+        Waves.init();
+      });
+    </script>
+  
+  
+    <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+  
+  
+  
+
+  
+  
+  
+  
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    
+      
+        <script src="https://cdn.jsdelivr.net/gh/xaoxuu/volantis@1/js/volantis.min.js"></script>
+      
+    
+    <script>
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+      return GUEST_INFO.indexOf(item) > -1
+    });
+    var notify = 'false' == true;
+    var verify = 'false' == true;
+    var valine = new Valine();
+    valine.init({
+      el: '#valine_container',
+      notify: notify,
+      verify: verify,
+      guest_info: guest_info,
+      
+      appId: "JNeTBifEwmUfmdnyOEBG4suK-gzGzoHsz",
+      appKey: "Oyb5B8Dne8WofJBoEDKe60nC",
+      placeholder: "on my way to the topp.",
+      pageSize:'10',
+      avatar:'mp',
+      lang:'zh-cn',
+      highlight:''
+    })
+    </script>
+  
+
+  
+    <script src="/js/app.js"></script>
+<script src="/js/search.js"></script>
+  
+
+
+
+
+
+
+    <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

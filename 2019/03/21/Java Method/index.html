@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>Java Method | WiyeeLu</title>
+  
+  
+  <meta name="description" content="on my way to the topp.">
+  
+
+  
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+
+  <!-- link -->
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.6.3/css/all.min.css">
+  
+
+  
+  <link rel="shortcut icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicon.ico">
+  
+
+  
+  <link rel="stylesheet" href="/style.css">
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+    <div id="loading-bar-wrapper">
+  <div id="loading-bar" class="pure"></div>
+</div>
+
+    <script>setLoadingBarProgress(20)</script>
+    <header class="l_header pure">
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" href='/' >
+        
+          WiyeeLu
+        
+      </a>
+			<div class='menu'>
+				<ul class='h-list'>
+          
+  					
+  						<li>
+								<a id="archives"
+								 class="nav flat-box" href="/archives/">
+									<i class='fas fa-archive fa-fw'></i>&nbsp;Archives
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search" />
+						<span class="icon"><i class="fas fa-search fa-fw"></i></span>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-toc'><a class="flat-btn fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu">
+      <ul>
+          
+              
+                  <li>
+										<a id="archives" class="nav flat-box" href="/archives/">
+											<i class='fas fa-archive fa-fw'></i>&nbsp;Archives
+										</a>
+                  </li>
+              
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+    <div class="l_body">
+    <div class='container clearfix'>
+        <div class='l_main'>
+            <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+  
+<section class='meta'>
+  
+  
+  <div class="meta" id="header-meta">
+    
+      
+          <h1 class="title">Java Method</h1>
+      
+    
+
+    <div class='new-meta-box'>
+      
+        <div class='new-meta-item author'>
+          <a href="https://wiyeelu.github.io">
+            <i class="fas fa-user" aria-hidden="true"></i>
+            WiyeeLu
+          </a>
+        </div>
+      
+      
+        <div class="new-meta-item date">
+          <a class='notlink'>
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            2019-03-21
+          </a>
+        </div>
+      
+      
+        
+      
+      
+        
+          <div class="new-meta-item browse busuanzi">
+            <a class='notlink'>
+              <i class="fas fa-eye" aria-hidden="true"></i>
+              <span id="busuanzi_value_page_pv">
+                <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+              </span>
+            </a>
+          </div>
+        
+      
+      
+    </div>
+    <hr>
+  </div>
+</section>
+
+    <section class="article typo">
+      <div class="article-entry" itemprop="articleBody">
+        <p>学习 Java 方法后的一些理解与总结</p>
+<a id="more"></a>
+<p>一个 Java 方法是为了执行某个操作的一些语句的组合，本质是一段代码片段。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">方法定义在类体当中，在一个类当中可以定义多个方法</span><br><span class="line">方法编写的位置没有先后顺序，可以随意</span><br><span class="line">方法体当中不能再定义方法！！！！</span><br><span class="line">方法体由 java 语句构成，方法体当中的代码遵守自上而下的顺序依次执行</span><br></pre></td></tr></table></figure>
+<h2 id="创建方法"><a href="#创建方法" class="headerlink" title="创建方法"></a>创建方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">stuAge</span><span class="params">(<span class="keyword">int</span> a)</span></span>&#123;</span><br><span class="line">  <span class="comment">// method</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>public static：修饰符</p>
+<ul>
+<li>可选项，不是必须的</li>
+</ul>
+</li>
+<li><p>int：返回值类型</p>
+<ul>
+<li>返回值类型可以是 Java 任意一种类型，包括基本数据类型和所有的引用数据类型</li>
+<li>也可能一个方法执行结束之后不返回任何数据，此时应使用 void 关键字</li>
+<li>返回值类型不是 void 的时候，表示这个方法执行结束之后必须返回一个具体的值</li>
+<li>return 值; //值的数据类型必须和方法的返回值一致，否则编译报错<br>eg. 拥有返回值类型的方法，定义方法计算两个 int 类型数据的商<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">divide</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a / b;</span><br><span class="line">  <span class="comment">//已经执行 return 语句即结束当前方法</span></span><br><span class="line">  <span class="comment">//System.out.println("Wihieree");</span></span><br><span class="line">  <span class="comment">//编译报错，因为永远不会执行 sout</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>当返回值为空的时候使用 return; 语句是为了结束当前方法</p>
+</li>
+<li><p>stuAge：方法名</p>
+<ul>
+<li>合法的标识符</li>
+<li>见名知意</li>
+<li>首字母要求小写，后面每个单词首字母大写<ol>
+<li>stuAge   stuName   maxNumFuntion</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>a：形参（形式参数）</p>
+<ul>
+<li>可选项，不是必须</li>
+<li>形参是局部变量</li>
+<li>多个形参之间用 “逗号” 隔开，要求类型对应相同，类型不同的时候要求能够进行相应的自动类型转换<ol>
+<li>int a,int b,int c</li>
+</ol>
+</li>
+<li>形参中起决定性作用的是形参的数据类型，形参的名字就是局部变量的名字</li>
+</ul>
+</li>
+<li><p>int a：参数列表</p>
+<ul>
+<li>方法再调用的时候，实际给这个方法传递的真实数据被称为：实际参数，简称实参</li>
+<li>实参列表和形参列表必须满足<ol>
+<li>数量相同</li>
+<li>类型对应相同<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义一个 sum 方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">  <span class="comment">//int a,int b 是形参列表</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//方法调用</span></span><br><span class="line"><span class="comment">//sum("abc","def"); //编译报错</span></span><br><span class="line">sum(<span class="number">10</span>,<span class="number">20</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<p>eg. 定义一个 max() 方法，接受 num1 和 num2 两个参数并返回两者之间的最大值<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">maxFunt</span><span class="params">(<span class="keyword">int</span> num1, <span class="keyword">int</span> num2)</span> </span>&#123;</span><br><span class="line">     <span class="keyword">int</span> max;</span><br><span class="line">     <span class="keyword">if</span> (num1 &gt; num2) &#123;</span><br><span class="line">        max = num1;</span><br><span class="line">     &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        max = num2;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">return</span> max;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="方法调用"><a href="#方法调用" class="headerlink" title="方法调用"></a>方法调用</h2><p>方法只定义不去调用时不会执行的，只有在调用的时候才会执行</p>
+<p>语法规则：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;方法的修饰符列表当中有 static &gt;</span><br><span class="line">类名.方法名(实参列表)；这是一条 java 语句，表示调用某个类的某个方法，传递这样的实参</span><br></pre></td></tr></table></figure></p>
+<p>eg.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//public 表示公开的</span></span><br><span class="line"><span class="comment">//class 表示定义类</span></span><br><span class="line"><span class="comment">// MethodTest03 是一个类名</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MethodTest03</span> </span>&#123;</span><br><span class="line">    <span class="comment">//表示定义一个公开的类 MethodTest03，由于是公开的类，所以源文件名必须为 MethodTest03</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//类体</span></span><br><span class="line">    <span class="comment">//类体中不能直接编写 java 语句，除声明变量之外</span></span><br><span class="line">    <span class="comment">//方法出现在类体当中</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//方法</span></span><br><span class="line">    <span class="comment">//public 表示公开的</span></span><br><span class="line">    <span class="comment">//static 表示静态的</span></span><br><span class="line">    <span class="comment">//void 表示方法执行结束之后不返回任何数据</span></span><br><span class="line">    <span class="comment">//main 是方法名:主方法</span></span><br><span class="line">    <span class="comment">//(String[] args)：形式参数列表，其中String[]是一种引用数据类型，args 是一个局部变量的变量名</span></span><br><span class="line">    <span class="comment">//以下只有 args 这个局部变量的变量名是随意的</span></span><br><span class="line">    <span class="comment">//主方法就需要这样固定编写，这是程序的入口（SUN 规定的，必须这样写）</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//这里的程序是一定会执行的</span></span><br><span class="line">        <span class="comment">//main 方法是 JVM 负责调用的，是一个入口位置</span></span><br><span class="line">        <span class="comment">//从这里作为起点开始执行程序</span></span><br><span class="line">        <span class="comment">//在这里调用其它方法</span></span><br><span class="line">        <span class="comment">//调用 MethodTest03 的 sum 方法，传递两个实参</span></span><br><span class="line">        MethodTest03.sum(<span class="number">10</span>,<span class="number">20</span>); <span class="comment">//实参</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//一个方法可以被重复使用，重复调用</span></span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">300</span>;</span><br><span class="line">        MethodTest03.sum(a,<span class="number">500</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//自定义方法：不是程序的入口</span></span><br><span class="line">    <span class="comment">//方法作用：计算两个 int 类型数据的和，不要求返回结果，但是要求将结果直接输出到控制台</span></span><br><span class="line">    <span class="comment">//修饰符列表：public static</span></span><br><span class="line">    <span class="comment">//返回值类型：void</span></span><br><span class="line">    <span class="comment">//方法名：sum</span></span><br><span class="line">    <span class="comment">//形式参数列表：（int x,int y）</span></span><br><span class="line">    <span class="comment">//方法体：主要任务是求和之后输出计算结果</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> i,<span class="keyword">int</span> j)</span></span>&#123;<span class="comment">//形参</span></span><br><span class="line">        System.out.println(i + <span class="string">" + "</span> + j + <span class="string">" = "</span> + (i + j));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="参数的值传递"><a href="#参数的值传递" class="headerlink" title="参数的值传递"></a>参数的值传递</h2><p>在调用函数时参数是必须被传递的，并且他们的次序必须和他们创建时的参数次序是一样的，参数可以通过值或引用来传递<br>eg. 通过值来传递参数<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CanShuTest01</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> i = <span class="number">10</span>;</span><br><span class="line">		add(i);</span><br><span class="line">		System.out.println(<span class="string">"main --&gt;&gt; "</span> + i); <span class="comment">// 10 这里的值是 main 方法里的 i 的值</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">		i++;</span><br><span class="line">		System.out.println(<span class="string">"add --&gt;&gt; "</span> + i); <span class="comment">// 11</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>eg. 通过值来传递参数，当传递的是内存地址的时候<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CanShuTest02</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		User1 u = <span class="keyword">new</span> User1(<span class="number">20</span>);</span><br><span class="line">		add(u);</span><br><span class="line">		System.out.println(<span class="string">"main --&gt;&gt; "</span> + u.age);<span class="comment">//21</span></span><br><span class="line">    <span class="comment">//因为这里的 u  指向的 User1 对象的 age 值在 add 方法</span></span><br><span class="line">    <span class="comment">//里修改成了 21</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//User1 u 形参</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(User1 u)</span> </span>&#123;</span><br><span class="line">		u.age++;</span><br><span class="line">		System.out.println(<span class="string">"add --&gt;&gt; "</span> + u.age); <span class="comment">//21</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User1</span></span>&#123;</span><br><span class="line">	<span class="comment">//实例变量</span></span><br><span class="line">	<span class="keyword">int</span> age;</span><br><span class="line">	<span class="comment">//构造方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">User1</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">		age = i;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="方法重载-overload"><a href="#方法重载-overload" class="headerlink" title="方法重载 overload"></a>方法重载 overload</h2><p>当一个方法有两个或者更多的方法，他们的名字一样但是参数不同时，就叫做方法的重载<br>它与覆盖是不同的，覆盖是指方法具有相同的名字，类型以及参数的个数<br>方法重载的优点：</p>
+<ul>
+<li>程序员调用方法的时候，比较方便，虽然调用的是不同的方法，但是就感觉在调用同一个方法，不需要记忆更多的方法名</li>
+</ul>
+<p>方法重载的条件：</p>
+<ul>
+<li>在同一个类当中</li>
+<li>方法名相同</li>
+<li>参数列表不同：数量、顺序、类型不同</li>
+<li>方法重载和方法名 + 参数列表有关系</li>
+<li>方法重载和返回值类型、修饰符列表无关<br>eg. 定义一个计算两个 int 类型、long 类型、double 类型 数据的和的方法<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OverloadTest01</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        System.out.println(sum(<span class="number">1</span>,<span class="number">2</span>)); <span class="comment">//3</span></span><br><span class="line">        System.out.println(sum(<span class="number">1.3</span>,<span class="number">2.5</span>)); <span class="comment">//3.8</span></span><br><span class="line">        System.out.println(sum(<span class="number">10L</span>,<span class="number">20L</span>)); <span class="comment">//30</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a + b;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">sum</span><span class="params">(<span class="keyword">long</span> a,<span class="keyword">long</span> b)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a + b;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">sum</span><span class="params">(<span class="keyword">double</span> a,<span class="keyword">double</span> b)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a + b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="方法递归"><a href="#方法递归" class="headerlink" title="方法递归"></a>方法递归</h2><p>方法递归即为方法自身调用自身<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a()&#123;</span><br><span class="line">  a();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>递归是很耗费栈内存的，递归算法可以不用的时候尽量别用<br>递归必须有结束条件，没有结束条件一定会发生栈溢出错误<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RecursionTest01</span> </span>&#123;</span><br><span class="line">    <span class="comment">//主方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        <span class="comment">//调用 doSome 方法</span></span><br><span class="line">       doSome();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// doSome 会被重复调用</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">doSome</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"doSome begin"</span>);</span><br><span class="line">        doSome();<span class="comment">//这行代码不结束，下一行程序是无法运行的</span></span><br><span class="line">        System.out.println(<span class="string">"doSome over"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>递归即使有了结束条件，即使结束条件是正确的，也可能会发生栈内存溢出错误，因为递归太深了<br>主要应用为目录拷贝<br>eg. 使用递归计算 1~N 的求和<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RecursionTest03</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//1~4 的和</span></span><br><span class="line">        <span class="keyword">int</span> n = <span class="number">4</span>;</span><br><span class="line">        <span class="keyword">int</span> retValue = sum(n);</span><br><span class="line">        System.out.println(retValue);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">        <span class="comment">// 4 + 3 + 2 + 1</span></span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> n + sum(n-<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="构造方法（构造函数-构造器-Constructor）"><a href="#构造方法（构造函数-构造器-Constructor）" class="headerlink" title="构造方法（构造函数 / 构造器 / Constructor）"></a>构造方法（构造函数 / 构造器 / Constructor）</h2><p>构造方法的作用：构造方法存在的意义是通过构造方法的调用，可以创建对象<br>当一个对象被创建时候，构造方法用来初始化该对象。构造方法和它所在类的名字相同，但构造方法没有返回值<br>成员变量之实例变量，属于对象级别的变量，这种变量必须先有对象才能有实例变量<br>实例变量没有手动赋值的时候，系统默认赋值，在构造方法执行过程中完成的赋值<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">构造方法语法结构：</span><br><span class="line">[修饰符列表]	构造方法名(形式参数列表)&#123;</span><br><span class="line">  构造方法体;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//虽然构造方法语法没有返回值类型，但是构造方法执行之后有返回值</span></span><br><span class="line"></span><br><span class="line">普通方法的语法结构：</span><br><span class="line">[修饰符列表]	返回值类型 方法名(形式参数列表)&#123;</span><br><span class="line">  方法体;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>对于构造方法来说，”返回值类型”不需要指定，并且也不能写 void, 只要写上 void，那么这个方法就是普通方法<br>通常会使用构造方法给一个类的实例变量赋初值，或者执行其它必要的步骤来创建一个完整的对象<br>当一个类中没有定义任何构造方法的话，系统默认给该类提供一个无参数的构造方法，这个构造方法被称为缺省构造器<br>当一个类显示的将构造方法定义出来了，那么系统则不再默认为这个类提供缺省构造器；建议开发中手动的为当前类提供无参数构造方法<br>构造方法支持重载机制</p>
+<p>在 Java 类和对象的封装中进行补充说明</p>
+<h2 id="static-关键字"><a href="#static-关键字" class="headerlink" title="static 关键字"></a>static 关键字</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. static 译为 静态的</span><br><span class="line">2. static 修饰的方法是静态方法</span><br><span class="line">3. static 修饰的变量是静态变量</span><br><span class="line">4. 所有 static 修饰的元素都称为静态的，都可以使用&quot;类名.&quot;的方式访问，</span><br><span class="line">        当然也可以用&quot;引用.&quot;的方式访问（但是不建议）</span><br></pre></td></tr></table></figure>
+<p>方法定义为静态的情况：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 方法描述的是动作，当所有的对象执行这个动作的时候，最终产生影响是一样的，那么这个动作已经不再属于某一对象动作了，可以将这个动作提升为类级别的动作，模板级别的动作</span><br><span class="line">2. 静态方法中无法直接访问实例变量和实例方法</span><br><span class="line">3. 大多数方法都定义为实例方法，一般一个行为或者一个动作在发生的时候，都需要对象的参与，但是也有例外，例如：大多数&quot;工具类&quot;中的方法都是静态方法，因为工具类就是方便编程，为了方便方法的调用，自然不需要 new 对象是最好的</span><br></pre></td></tr></table></figure></p>
+
+      </div>
+        
+          <section class='meta' id="footer-meta">
+            <hr>
+            <div class='new-meta-box'>
+              
+                <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-06-21T08:58:04+08:00">
+                  <a class='notlink'>
+                    <i class="fas fa-pencil-alt" aria-hidden="true"></i>
+                    2019-06-21
+                  </a>
+                </div>
+              
+              
+                
+                <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Java/"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;Java</a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Method/"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;Method</a></div>
+              
+              
+            </div>
+          </section>
+        
+
+        
+            <div class="prev-next">
+                
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous</h6>
+                            <h4>
+                                <a href="/2019/03/22/Java 类和对象/" rel="prev" title="Java类和对象">
+                                  
+                                      Java类和对象
+                                  
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/Java/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Java</a> <a class="tag" href="/tags/Method/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Method</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+                
+            </div>
+        
+
+    </section>
+
+</article>
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+<br>
+
+<!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments">
+    <section class="article typo">
+      <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;Comments</h4>
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-spinner fa-spin fa-fw"></i>
+          </div>
+        </section>
+      
+    </section>
+  </article>
+
+
+
+<script>
+    window.subData = {
+        title: 'Java Method',
+        tools: true
+    }
+</script>
+
+
+        </div>
+        <aside class='l_side'>
+            
+  
+  
+    
+      
+      
+        <section class='author'>
+  <div class='content pure'>
+    
+      <div class='avatar'>
+        <img class='avatar' src='https://res.cloudinary.com/wiyeely/image/upload/v1553152177/22922331760_97592547a8_z.jpg'/>
+      </div>
+    
+    
+      <div class='text'>
+        
+          <h2>WiyeeLu</h2>
+        
+        
+          <p>on my way to the topp.</p>
+
+        
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="mailto:WiHieree@Yahoo.com" class="social flat-btn" target="_blank" rel="external"><i class="social fas fa-envelope" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://github.com/WiyeeLu" class="social flat-btn" target="_blank" rel="external"><i class="social fab fa-github" aria-hidden="true"></i></a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+      
+    
+  
+    
+      
+      
+        
+  <section class='toc-wrapper'>
+    
+<header class='pure'>
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Table of Contents</div>
+  
+    <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+  
+</header>
+
+    <div class='content pure'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建方法"><span class="toc-text">创建方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法调用"><span class="toc-text">方法调用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参数的值传递"><span class="toc-text">参数的值传递</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法重载-overload"><span class="toc-text">方法重载 overload</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法递归"><span class="toc-text">方法递归</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#构造方法（构造函数-构造器-Constructor）"><span class="toc-text">构造方法（构造函数 / 构造器 / Constructor）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#static-关键字"><span class="toc-text">static 关键字</span></a></li></ol>
+    </div>
+  </section>
+
+
+      
+    
+  
+
+
+        </aside>
+        <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+    <footer id="footer" class="clearfix">
+  
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="mailto:WiHieree@Yahoo.com" class="social fas fa-envelope flat-btn" target="_blank" rel="external"></a>
+        
+      
+        
+          <a href="https://github.com/WiyeeLu" class="social fab fa-github flat-btn" target="_blank" rel="external"></a>
+        
+      
+    </div>
+  
+  <br>
+  <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+  <div>Use <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a> as theme, total visits <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span> times. 
+  </div>
+</footer>
+
+    <script>setLoadingBarProgress(80);</script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+
+  <script>
+    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+    var ALGOLIA_API_KEY = "";
+    var ALGOLIA_APP_ID = "";
+    var ALGOLIA_INDEX_NAME = "";
+    var AZURE_SERVICE_NAME = "";
+    var AZURE_INDEX_NAME = "";
+    var AZURE_QUERY_KEY = "";
+    var BAIDU_API_ID = "";
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/"||"/";
+    if(!ROOT.endsWith('/'))ROOT += '/';
+  </script>
+
+
+  
+    <script async src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        const $reveal = $('.reveal');
+    		if ($reveal.length === 0) return;
+    		const sr = ScrollReveal({ distance: 0 });
+    		sr.reveal('.reveal');
+      });
+    </script>
+  
+  
+    <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        Waves.attach('.flat-btn', ['waves-button']);
+        Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+        Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+        Waves.attach('.flat-box', ['waves-block']);
+        Waves.attach('.float-box', ['waves-block', 'waves-float']);
+        Waves.attach('.waves-image');
+        Waves.init();
+      });
+    </script>
+  
+  
+    <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+  
+  
+  
+
+  
+  
+  
+  
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    
+      
+        <script src="https://cdn.jsdelivr.net/gh/xaoxuu/volantis@1/js/volantis.min.js"></script>
+      
+    
+    <script>
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+      return GUEST_INFO.indexOf(item) > -1
+    });
+    var notify = 'false' == true;
+    var verify = 'false' == true;
+    var valine = new Valine();
+    valine.init({
+      el: '#valine_container',
+      notify: notify,
+      verify: verify,
+      guest_info: guest_info,
+      
+      appId: "JNeTBifEwmUfmdnyOEBG4suK-gzGzoHsz",
+      appKey: "Oyb5B8Dne8WofJBoEDKe60nC",
+      placeholder: "on my way to the topp.",
+      pageSize:'10',
+      avatar:'mp',
+      lang:'zh-cn',
+      highlight:''
+    })
+    </script>
+  
+
+  
+    <script src="/js/app.js"></script>
+<script src="/js/search.js"></script>
+  
+
+
+
+
+
+
+    <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

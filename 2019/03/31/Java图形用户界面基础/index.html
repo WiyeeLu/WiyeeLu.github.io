@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>Java图形用户界面基础 | WiyeeLu</title>
+  
+  
+  <meta name="description" content="on my way to the topp.">
+  
+
+  
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+
+  <!-- link -->
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.6.3/css/all.min.css">
+  
+
+  
+  <link rel="shortcut icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicon.ico">
+  
+
+  
+  <link rel="stylesheet" href="/style.css">
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+    <div id="loading-bar-wrapper">
+  <div id="loading-bar" class="pure"></div>
+</div>
+
+    <script>setLoadingBarProgress(20)</script>
+    <header class="l_header pure">
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" href='/' >
+        
+          WiyeeLu
+        
+      </a>
+			<div class='menu'>
+				<ul class='h-list'>
+          
+  					
+  						<li>
+								<a id="archives"
+								 class="nav flat-box" href="/archives/">
+									<i class='fas fa-archive fa-fw'></i>&nbsp;Archives
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search" />
+						<span class="icon"><i class="fas fa-search fa-fw"></i></span>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-toc'><a class="flat-btn fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu">
+      <ul>
+          
+              
+                  <li>
+										<a id="archives" class="nav flat-box" href="/archives/">
+											<i class='fas fa-archive fa-fw'></i>&nbsp;Archives
+										</a>
+                  </li>
+              
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+    <div class="l_body">
+    <div class='container clearfix'>
+        <div class='l_main'>
+            <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+  
+<section class='meta'>
+  
+  
+  <div class="meta" id="header-meta">
+    
+      
+          <h1 class="title">Java图形用户界面基础</h1>
+      
+    
+
+    <div class='new-meta-box'>
+      
+        <div class='new-meta-item author'>
+          <a href="https://wiyeelu.github.io">
+            <i class="fas fa-user" aria-hidden="true"></i>
+            WiyeeLu
+          </a>
+        </div>
+      
+      
+        <div class="new-meta-item date">
+          <a class='notlink'>
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            2019-03-31
+          </a>
+        </div>
+      
+      
+        
+      
+      
+        
+          <div class="new-meta-item browse busuanzi">
+            <a class='notlink'>
+              <i class="fas fa-eye" aria-hidden="true"></i>
+              <span id="busuanzi_value_page_pv">
+                <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+              </span>
+            </a>
+          </div>
+        
+      
+      
+    </div>
+    <hr>
+  </div>
+</section>
+
+    <section class="article typo">
+      <div class="article-entry" itemprop="articleBody">
+        <p>为 Java GUI 程序设计而设计的 API 是应用面向对象原理的绝佳范例<br>GUI 全称是 Graphical User Interface，简单的说是图形用户界面<br>GUI 只有在桌面操作系统中才存在</p>
+<a id="more"></a>
+<h2 id="Swing-和-AWT"><a href="#Swing-和-AWT" class="headerlink" title="Swing 和 AWT"></a>Swing 和 AWT</h2><p>不依赖于自己 GUI 的 Swing 组件称为轻量级组件（即对系统依赖性较弱），而 AWT 组件称为重量级组件（对系统依赖性较强）<br>AWT 用户界面组件终究是要退出历史舞台，但是 Swing 组件不能取代 AWT 中的全部类，只能替代 AWT GUI 的组件类，AWT 辅助类在 GUI 程序设计中仍然很有用</p>
+<h4 id="AWT-缺点"><a href="#AWT-缺点" class="headerlink" title="AWT 缺点"></a>AWT 缺点</h4><p>AWT 组件最大的缺陷就是它依赖于操作系统，也就是说 AWT 程序运行在不同的操作系统上会有不同的外观和行为，这和 Java 的平台无关性是不符合的</p>
+<h4 id="Swing-优点"><a href="#Swing-优点" class="headerlink" title="Swing 优点"></a>Swing 优点</h4><p>Swing 组件是在 AWT 组件上发展而来的轻量级组件，与 AWT 相比不但改进了用户界面，而且所需的系统资源更少<br>Swing 是纯 Java 组件，使得应用程序在不同的平台上运行时具有相同的外观和相同的行为</p>
+<h2 id="Java-GUI-API"><a href="#Java-GUI-API" class="headerlink" title="Java GUI API"></a>Java GUI API</h2><p>GUI API 包含的类可以分成三个组：组件类（component class）、容器类（container class）和辅助类（helper class）<br>组件类是用来创建用户界面的，例如：JButton、JLable 和 JTextField<br>容器类是用来包含其他组件的，例如：JFrame、JPanel 和 JApplet<br>辅助类是用来支持 GUI 组件，例如：Graphics、Color、Font、FontMetrics 和 Dimension</p>
+<h4 id="组件类"><a href="#组件类" class="headerlink" title="组件类"></a>组件类</h4><p>Component 类的实例可以显示在屏幕上，是包括容器类的所有用户界面类的根类<br>JComponent 类是所有轻量级 Swing 组件类的根类<br>Component 类和 JComponent 类都是抽象类</p>
+<h4 id="容器类"><a href="#容器类" class="headerlink" title="容器类"></a>容器类</h4><p>一个 Container 的实例可以包含 Component 实例<br>容器类是用于盛装其他 GUI 组件的 GUI 组件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">        容器类                                                          说  明</span><br><span class="line">java.awt.Container                          用于对组件分组。框架 Frame、面板 Panel 和 applet 都是它的子类</span><br><span class="line">java.swing.JFrame                           一个不能包含在另一个窗口中的窗口。在 Java GUI 应用程序中，它用于存放其他 Swing 用户界面组件</span><br><span class="line">java.swing.JPanel                           一个存放用户界面组件的不可见的容器。面板可以嵌套。可以将面板放在包含面板的容器中。JPanel 也可用作画图的画布</span><br><span class="line">java.swing.JApplet                          Applet 的一个子类。必须扩展 JApplet 才能创建基于 Swing 的 Java appet</span><br><span class="line">java.swing.JDialog                          一个弹出式窗口或消息框，一般用作接收来自用户的附加信息或通知事件发生的临时窗口</span><br></pre></td></tr></table></figure>
+<h4 id="GUI-辅助类"><a href="#GUI-辅助类" class="headerlink" title="GUI 辅助类"></a>GUI 辅助类</h4><p>辅助类都不是 Component 的子类，它们用来描述 GUI 组件的属性，例如：图形的内容、颜色、字体以及大小尺寸等</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">        辅助类                                                          说  明</span><br><span class="line">java.awt.Graphics                           一个抽象类，提供绘制字符串、线和简单几何图形的方法</span><br><span class="line">java.awt.Color                              处理 GUI 组件的颜色</span><br><span class="line">java.awt.Font                               指定 GUI 组件上文本和图形的字体</span><br><span class="line">java.awt.FontMetrics                        一个获取字体属性的抽象类</span><br><span class="line">java.awt.Dimension                          将组件的宽度和高度（以整数为精度）封装在单个对象中</span><br><span class="line">java.awt.LayoutManager                      指定组件在容器中如何放置</span><br></pre></td></tr></table></figure>
+<h2 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h2><p>创建一个用户界面需要创建一个框架或一个 applet 来存放用户界面组件</p>
+<h2 id="布局管理器"><a href="#布局管理器" class="headerlink" title="布局管理器"></a>布局管理器</h2><p>可以动态地改变布局管理器的属性<br>FlowLayout（流式布局）具有属性 alignment、hgap 和 vgap，可以使用 setAlignment、setHgap 和 setVgap 方法来表明对齐方式、水平间隔和垂直间隔<br>GridLayout（网格布局）具有属性 rows、columns、hgap 和 vgap，可以使用 setRows、setColums、setHgap 和 setVgap 方法来指定行数、列数以及水平间隔和垂直间隔<br>BorderLayout（边界布局）具有属性 hgap 和 vgap，可以使用 setHgap 和 setVgap 方法来指定水平间隔和垂直间隔<br>框架默认的布局是 BorderLayout，所以在框架中想要使用 BorderLayout，可以不进行指定，直接使用即可，JPanel 默认的布局是FlowLayout 即流式布局</p>
+<h2 id="Swing-GUI-组件的公共特性"><a href="#Swing-GUI-组件的公共特性" class="headerlink" title="Swing GUI 组件的公共特性"></a>Swing GUI 组件的公共特性</h2><p>Component 类是所有 GUI 组件和容器的根，所有 Swing GUI 组件（除了 JFrame、JApplet 和 JDialog）都是 JComponent 的子类</p>
+<h4 id="Swing-GUI-组件常用的操作方法"><a href="#Swing-GUI-组件常用的操作方法" class="headerlink" title="Swing GUI 组件常用的操作方法"></a>Swing GUI 组件常用的操作方法</h4><p><img src="/2019/03/31/Java图形用户界面基础/1.png" alt="Swing GUI 组件常用的操作方法"><br>所有 Swing GUI 组件都继承 Component、Container 和 JComponent 的公共方法</p>
+
+      </div>
+        
+          <section class='meta' id="footer-meta">
+            <hr>
+            <div class='new-meta-box'>
+              
+                <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-06-21T08:58:06+08:00">
+                  <a class='notlink'>
+                    <i class="fas fa-pencil-alt" aria-hidden="true"></i>
+                    2019-06-21
+                  </a>
+                </div>
+              
+              
+                
+                <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Java/"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;Java</a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/GUI/"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;GUI</a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/API/"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;API</a></div>
+              
+              
+            </div>
+          </section>
+        
+
+        
+            <div class="prev-next">
+                
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous</h6>
+                            <h4>
+                                <a href="/2019/04/01/Git/" rel="prev" title="Git 简单指导">
+                                  
+                                      Git 简单指导
+                                  
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/Git/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Git</a> <a class="tag" href="/tags/Github/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Github</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2019/03/29/Java-二进制I-O/" rel="prev" title="Java 二进制I/O">
+                                    
+                                        Java 二进制I/O
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/Java/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Java</a> <a class="tag" href="/tags/I-O/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>I/O</a> <a class="tag" href="/tags/二进制/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>二进制</a> <a class="tag" href="/tags/文件/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>文件</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+
+    </section>
+
+</article>
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+<br>
+
+<!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments">
+    <section class="article typo">
+      <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;Comments</h4>
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-spinner fa-spin fa-fw"></i>
+          </div>
+        </section>
+      
+    </section>
+  </article>
+
+
+
+<script>
+    window.subData = {
+        title: 'Java图形用户界面基础',
+        tools: true
+    }
+</script>
+
+
+        </div>
+        <aside class='l_side'>
+            
+  
+  
+    
+      
+      
+        <section class='author'>
+  <div class='content pure'>
+    
+      <div class='avatar'>
+        <img class='avatar' src='https://res.cloudinary.com/wiyeely/image/upload/v1553152177/22922331760_97592547a8_z.jpg'/>
+      </div>
+    
+    
+      <div class='text'>
+        
+          <h2>WiyeeLu</h2>
+        
+        
+          <p>on my way to the topp.</p>
+
+        
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="mailto:WiHieree@Yahoo.com" class="social flat-btn" target="_blank" rel="external"><i class="social fas fa-envelope" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://github.com/WiyeeLu" class="social flat-btn" target="_blank" rel="external"><i class="social fab fa-github" aria-hidden="true"></i></a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+      
+    
+  
+    
+      
+      
+        
+  <section class='toc-wrapper'>
+    
+<header class='pure'>
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Table of Contents</div>
+  
+    <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+  
+</header>
+
+    <div class='content pure'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Swing-和-AWT"><span class="toc-text">Swing 和 AWT</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#AWT-缺点"><span class="toc-text">AWT 缺点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Swing-优点"><span class="toc-text">Swing 优点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java-GUI-API"><span class="toc-text">Java GUI API</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#组件类"><span class="toc-text">组件类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#容器类"><span class="toc-text">容器类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GUI-辅助类"><span class="toc-text">GUI 辅助类</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#框架"><span class="toc-text">框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#布局管理器"><span class="toc-text">布局管理器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Swing-GUI-组件的公共特性"><span class="toc-text">Swing GUI 组件的公共特性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Swing-GUI-组件常用的操作方法"><span class="toc-text">Swing GUI 组件常用的操作方法</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </section>
+
+
+      
+    
+  
+
+
+        </aside>
+        <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+    <footer id="footer" class="clearfix">
+  
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="mailto:WiHieree@Yahoo.com" class="social fas fa-envelope flat-btn" target="_blank" rel="external"></a>
+        
+      
+        
+          <a href="https://github.com/WiyeeLu" class="social fab fa-github flat-btn" target="_blank" rel="external"></a>
+        
+      
+    </div>
+  
+  <br>
+  <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+  <div>Use <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a> as theme, total visits <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span> times. 
+  </div>
+</footer>
+
+    <script>setLoadingBarProgress(80);</script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+
+  <script>
+    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+    var ALGOLIA_API_KEY = "";
+    var ALGOLIA_APP_ID = "";
+    var ALGOLIA_INDEX_NAME = "";
+    var AZURE_SERVICE_NAME = "";
+    var AZURE_INDEX_NAME = "";
+    var AZURE_QUERY_KEY = "";
+    var BAIDU_API_ID = "";
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/"||"/";
+    if(!ROOT.endsWith('/'))ROOT += '/';
+  </script>
+
+
+  
+    <script async src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        const $reveal = $('.reveal');
+    		if ($reveal.length === 0) return;
+    		const sr = ScrollReveal({ distance: 0 });
+    		sr.reveal('.reveal');
+      });
+    </script>
+  
+  
+    <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        Waves.attach('.flat-btn', ['waves-button']);
+        Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+        Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+        Waves.attach('.flat-box', ['waves-block']);
+        Waves.attach('.float-box', ['waves-block', 'waves-float']);
+        Waves.attach('.waves-image');
+        Waves.init();
+      });
+    </script>
+  
+  
+    <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+  
+  
+  
+
+  
+  
+  
+  
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    
+      
+        <script src="https://cdn.jsdelivr.net/gh/xaoxuu/volantis@1/js/volantis.min.js"></script>
+      
+    
+    <script>
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+      return GUEST_INFO.indexOf(item) > -1
+    });
+    var notify = 'false' == true;
+    var verify = 'false' == true;
+    var valine = new Valine();
+    valine.init({
+      el: '#valine_container',
+      notify: notify,
+      verify: verify,
+      guest_info: guest_info,
+      
+      appId: "JNeTBifEwmUfmdnyOEBG4suK-gzGzoHsz",
+      appKey: "Oyb5B8Dne8WofJBoEDKe60nC",
+      placeholder: "on my way to the topp.",
+      pageSize:'10',
+      avatar:'mp',
+      lang:'zh-cn',
+      highlight:''
+    })
+    </script>
+  
+
+  
+    <script src="/js/app.js"></script>
+<script src="/js/search.js"></script>
+  
+
+
+
+
+
+
+    <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

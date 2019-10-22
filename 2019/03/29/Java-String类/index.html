@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>Java String类 | WiyeeLu</title>
+  
+  
+  <meta name="description" content="on my way to the topp.">
+  
+
+  
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+
+  <!-- link -->
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.6.3/css/all.min.css">
+  
+
+  
+  <link rel="shortcut icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicon.ico">
+  
+
+  
+  <link rel="stylesheet" href="/style.css">
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+    <div id="loading-bar-wrapper">
+  <div id="loading-bar" class="pure"></div>
+</div>
+
+    <script>setLoadingBarProgress(20)</script>
+    <header class="l_header pure">
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" href='/' >
+        
+          WiyeeLu
+        
+      </a>
+			<div class='menu'>
+				<ul class='h-list'>
+          
+  					
+  						<li>
+								<a id="archives"
+								 class="nav flat-box" href="/archives/">
+									<i class='fas fa-archive fa-fw'></i>&nbsp;Archives
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search" />
+						<span class="icon"><i class="fas fa-search fa-fw"></i></span>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-toc'><a class="flat-btn fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu">
+      <ul>
+          
+              
+                  <li>
+										<a id="archives" class="nav flat-box" href="/archives/">
+											<i class='fas fa-archive fa-fw'></i>&nbsp;Archives
+										</a>
+                  </li>
+              
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+    <div class="l_body">
+    <div class='container clearfix'>
+        <div class='l_main'>
+            <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+  
+<section class='meta'>
+  
+  
+  <div class="meta" id="header-meta">
+    
+      
+          <h1 class="title">Java String类</h1>
+      
+    
+
+    <div class='new-meta-box'>
+      
+        <div class='new-meta-item author'>
+          <a href="https://wiyeelu.github.io">
+            <i class="fas fa-user" aria-hidden="true"></i>
+            WiyeeLu
+          </a>
+        </div>
+      
+      
+        <div class="new-meta-item date">
+          <a class='notlink'>
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            2019-03-29
+          </a>
+        </div>
+      
+      
+        
+      
+      
+        
+          <div class="new-meta-item browse busuanzi">
+            <a class='notlink'>
+              <i class="fas fa-eye" aria-hidden="true"></i>
+              <span id="busuanzi_value_page_pv">
+                <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+              </span>
+            </a>
+          </div>
+        
+      
+      
+    </div>
+    <hr>
+  </div>
+</section>
+
+    <section class="article typo">
+      <div class="article-entry" itemprop="articleBody">
+        <p>Java 中字符串的支持是通过在 JDK 中提供一个名为 String 的类，对应字符串这个变量类型</p>
+<a id="more"></a>
+<h2 id="String-类的特点"><a href="#String-类的特点" class="headerlink" title="String 类的特点"></a>String 类的特点</h2><ul>
+<li>String 类的底层使用 char 的数组保存数据</li>
+<li>String 类是一个 final 类，不允许被继承</li>
+<li>String 类是一个 immutable 类，该类的对象生成后，内容不会发生变化。该类中的所有返回 String 类型对象的成员方法都是返回一个新的 String 对象</li>
+<li>方法区中有一块区域名为“常量区”, 用于存储编译时和运行时的字符串常量</li>
+</ul>
+<h2 id="String-类方法"><a href="#String-类方法" class="headerlink" title="String 类方法"></a>String 类方法</h2><p>String 类作为对应字符串的类，该类中含有大量的方法用来完成字符串相关的构造、裁剪、拼接与替换等功能，大部分为方法重载</p>
+<h2 id="创建对象的两种方式"><a href="#创建对象的两种方式" class="headerlink" title="创建对象的两种方式"></a>创建对象的两种方式</h2><p>Java 中的字符串对象比较特殊，比普通 Java 类有多一种创建对象的方法，即“字符序列法”<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String strA = <span class="string">"WiHieree"</span>;</span><br><span class="line">String strB = <span class="keyword">new</span> String(<span class="string">"WiHieree"</span>);</span><br></pre></td></tr></table></figure></p>
+<p>以上两种方式创建的对象区别：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StringTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String strA = <span class="string">"Wihieree"</span>;</span><br><span class="line">        String strB = <span class="string">"Wihieree"</span>;</span><br><span class="line">        System.out.println(strA == strB);</span><br><span class="line">        System.out.println(strA.equals(strB));</span><br><span class="line"></span><br><span class="line">        String strC = <span class="keyword">new</span> String(<span class="string">"Wiyee"</span>);</span><br><span class="line">        String strD = <span class="keyword">new</span> String(<span class="string">"Wiyee"</span>);</span><br><span class="line">        System.out.println(strC == strD);</span><br><span class="line">        System.out.println(strC.equals(strD));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//输出结果</span></span><br><span class="line"><span class="keyword">true</span></span><br><span class="line"><span class="keyword">true</span></span><br><span class="line"><span class="keyword">false</span></span><br><span class="line"><span class="keyword">true</span></span><br></pre></td></tr></table></figure></p>
+<p>机制在于JVM内存模型的方法区中有一个 String 常量池（方法去内存），对于使用字符序列方式创建对象，JVM首先会查看字符串常量池中是否已经存在该对象，如果存在，则直接已存在对象而不会新建对象；对于使用 new 运算符方式创建对象，JVM会直接在堆中分配一个新的String对象，如下图所示：<br><img src="/2019/03/29/Java-String类/1.jpg" alt="代码片段的内存布局见图"></p>
+<h4 id="字符串的比较（equals-与-）"><a href="#字符串的比较（equals-与-）" class="headerlink" title="字符串的比较（equals 与 ==）"></a>字符串的比较（equals 与 ==）</h4><ul>
+<li>对于 ==，如果作用与基本数据类型（byte、short、char、int、long、float、double、boolean）的变量,则比较的是其存储的“值”是否相等；如果作用与引用类型的变量，则比较其所指向的对象的地址是否相同（即是否同一个对象）。在 Java 中，String 是引用类型</li>
+<li>String的 equals 方法继承自 Java 中的超级父类 Object，Object 的 equals 方法用来比较两个对象的引用是否相等（即是否同一个对象）。但是，String 的 equals 方法不仅是简单地继承，而是进行了重写(Override)，用来比较两个 String 对象所存储的字符序列值是否相等</li>
+</ul>
+<h2 id="intren-方法"><a href="#intren-方法" class="headerlink" title="intren 方法"></a>intren 方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StringTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String strA = <span class="string">"WiHieree"</span>;</span><br><span class="line">        String strB = <span class="keyword">new</span> String(<span class="string">"WiHieree"</span>);</span><br><span class="line">        System.out.println(strA.intern().equals(strB.intern()));</span><br><span class="line">        System.out.println(strA.intern() == strB.intern());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//输出结果</span></span><br><span class="line"><span class="keyword">true</span></span><br><span class="line"><span class="keyword">true</span></span><br></pre></td></tr></table></figure>
+<p>无论是字符串常量区中的 String 对象，还是堆内存中的 String 对象，它们的 intern 方法都是去 JVM 中的字符串常量区获取相等字符序列的 String 对象返回</p>
+<h2 id="值传递-引用传递"><a href="#值传递-引用传递" class="headerlink" title="值传递/引用传递"></a>值传递/引用传递</h2><p>Java 中只有值传递机制，而没有引用传递机制，所以 String 参数是值传递方式<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StringTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String arg = <span class="keyword">new</span> String(<span class="string">"WiHieree"</span>);</span><br><span class="line">        change(arg);</span><br><span class="line">        System.out.println(<span class="string">"main arg ---&gt; "</span> + arg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">change</span><span class="params">(String arg)</span> </span>&#123;</span><br><span class="line">        arg = <span class="string">"Wiyee"</span>;</span><br><span class="line">        System.out.println(<span class="string">"chang arg ---&gt; "</span> + arg);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//输出结果</span></span><br><span class="line">chang arg ---&gt; Wiyee</span><br><span class="line">main arg ---&gt; WiHieree</span><br></pre></td></tr></table></figure></p>
+<h2 id="字符串与数组之间的转换"><a href="#字符串与数组之间的转换" class="headerlink" title="字符串与数组之间的转换"></a>字符串与数组之间的转换</h2><p>字符串不是数组，但是字符串可以转换成数组，反之亦然<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">字符 ----&gt; 数组         toCharArray         <span class="keyword">char</span>[] chars = <span class="string">"WiHieree"</span>.toCharArray();</span><br><span class="line">数组 ----&gt; 字符     String str = <span class="keyword">new</span> String(<span class="keyword">new</span> <span class="keyword">char</span>[]&#123;<span class="string">'W'</span>,<span class="string">'i'</span>,<span class="string">'y'</span>,<span class="string">'e'</span>,<span class="string">'e'</span>&#125;);</span><br><span class="line">                   String str = String.valueOf(<span class="keyword">new</span> <span class="keyword">char</span>[]&#123;<span class="string">'W'</span>,<span class="string">'i'</span>,<span class="string">'y'</span>,<span class="string">'e'</span>,<span class="string">'e'</span>&#125;);</span><br></pre></td></tr></table></figure></p>
+<h2 id="String、StringBuffer-和-StringBuilder-的区别"><a href="#String、StringBuffer-和-StringBuilder-的区别" class="headerlink" title="String、StringBuffer 和 StringBuilder 的区别"></a>String、StringBuffer 和 StringBuilder 的区别</h2><h4 id="对象的可变与不可变"><a href="#对象的可变与不可变" class="headerlink" title="对象的可变与不可变"></a>对象的可变与不可变</h4><p>StringBuffer/StringBuilder 类是可以替代 String 类的另一种处理字符串的解决方案，比 String 类更灵活<br>可以给一个 StringBuilder或StringBuffer 中添加、插入或追加新的内容，但是 String 对象一旦创建，它的值就确定了</p>
+<h4 id="效率-使用-StringBuffer-连接字符串"><a href="#效率-使用-StringBuffer-连接字符串" class="headerlink" title="效率(使用 StringBuffer 连接字符串)"></a>效率(使用 StringBuffer 连接字符串)</h4><p>除了 StringBuffer 中修改缓冲区的方法是同步的之外，StringBuilder 类与 StringBuffer 类是很相似的<br>如果是多任务并发访问，就使用 StringBuffer ；而如果是单任务访问，使用 StringBuilder 会更有效<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+StringBuilder()                        构建一个容量为 <span class="number">16</span> 的空的字符串生成器</span><br><span class="line">+StringBuilder(capacity: <span class="keyword">int</span>)           构建一个指定容量的字符串生成器</span><br><span class="line">+StringBuilder(s: String)               构建一个带指定字符串的字符串生成器</span><br></pre></td></tr></table></figure></p>
+<p>eg. +append(data: char[]): StringBuilder 将字符串和字符追加到字符串生成器<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StringTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        StringBuilder a = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        a.append(<span class="string">"Welcome"</span>);</span><br><span class="line">        a.append(<span class="string">" "</span>);</span><br><span class="line">        a.append(<span class="string">"to"</span>);</span><br><span class="line">        a.append(<span class="string">" "</span>);</span><br><span class="line">        a.append(<span class="string">"WiyeeLu's blog"</span>);</span><br><span class="line">        System.out.println(a);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//输出结果</span></span><br><span class="line">Welcome to WiyeeLu<span class="string">'s blog</span></span><br></pre></td></tr></table></figure></p>
+
+      </div>
+        
+          <section class='meta' id="footer-meta">
+            <hr>
+            <div class='new-meta-box'>
+              
+                <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-06-21T08:58:04+08:00">
+                  <a class='notlink'>
+                    <i class="fas fa-pencil-alt" aria-hidden="true"></i>
+                    2019-06-21
+                  </a>
+                </div>
+              
+              
+                
+                <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Java/"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;Java</a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/String/"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;String</a></div>
+              
+              
+            </div>
+          </section>
+        
+
+        
+            <div class="prev-next">
+                
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous</h6>
+                            <h4>
+                                <a href="/2019/03/29/Java-二进制I-O/" rel="prev" title="Java 二进制I/O">
+                                  
+                                      Java 二进制I/O
+                                  
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/Java/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Java</a> <a class="tag" href="/tags/I-O/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>I/O</a> <a class="tag" href="/tags/二进制/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>二进制</a> <a class="tag" href="/tags/文件/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>文件</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2019/03/27/Java异常/" rel="prev" title="Java异常">
+                                    
+                                        Java异常
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/Java/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Java</a> <a class="tag" href="/tags/异常处理/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>异常处理</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+
+    </section>
+
+</article>
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+<br>
+
+<!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments">
+    <section class="article typo">
+      <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;Comments</h4>
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-spinner fa-spin fa-fw"></i>
+          </div>
+        </section>
+      
+    </section>
+  </article>
+
+
+
+<script>
+    window.subData = {
+        title: 'Java String类',
+        tools: true
+    }
+</script>
+
+
+        </div>
+        <aside class='l_side'>
+            
+  
+  
+    
+      
+      
+        <section class='author'>
+  <div class='content pure'>
+    
+      <div class='avatar'>
+        <img class='avatar' src='https://res.cloudinary.com/wiyeely/image/upload/v1553152177/22922331760_97592547a8_z.jpg'/>
+      </div>
+    
+    
+      <div class='text'>
+        
+          <h2>WiyeeLu</h2>
+        
+        
+          <p>on my way to the topp.</p>
+
+        
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="mailto:WiHieree@Yahoo.com" class="social flat-btn" target="_blank" rel="external"><i class="social fas fa-envelope" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://github.com/WiyeeLu" class="social flat-btn" target="_blank" rel="external"><i class="social fab fa-github" aria-hidden="true"></i></a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+      
+    
+  
+    
+      
+      
+        
+  <section class='toc-wrapper'>
+    
+<header class='pure'>
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Table of Contents</div>
+  
+    <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+  
+</header>
+
+    <div class='content pure'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#String-类的特点"><span class="toc-text">String 类的特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#String-类方法"><span class="toc-text">String 类方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建对象的两种方式"><span class="toc-text">创建对象的两种方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#字符串的比较（equals-与-）"><span class="toc-text">字符串的比较（equals 与 ==）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#intren-方法"><span class="toc-text">intren 方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#值传递-引用传递"><span class="toc-text">值传递/引用传递</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字符串与数组之间的转换"><span class="toc-text">字符串与数组之间的转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#String、StringBuffer-和-StringBuilder-的区别"><span class="toc-text">String、StringBuffer 和 StringBuilder 的区别</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#对象的可变与不可变"><span class="toc-text">对象的可变与不可变</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#效率-使用-StringBuffer-连接字符串"><span class="toc-text">效率(使用 StringBuffer 连接字符串)</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </section>
+
+
+      
+    
+  
+
+
+        </aside>
+        <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+    <footer id="footer" class="clearfix">
+  
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="mailto:WiHieree@Yahoo.com" class="social fas fa-envelope flat-btn" target="_blank" rel="external"></a>
+        
+      
+        
+          <a href="https://github.com/WiyeeLu" class="social fab fa-github flat-btn" target="_blank" rel="external"></a>
+        
+      
+    </div>
+  
+  <br>
+  <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+  <div>Use <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a> as theme, total visits <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span> times. 
+  </div>
+</footer>
+
+    <script>setLoadingBarProgress(80);</script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+
+  <script>
+    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+    var ALGOLIA_API_KEY = "";
+    var ALGOLIA_APP_ID = "";
+    var ALGOLIA_INDEX_NAME = "";
+    var AZURE_SERVICE_NAME = "";
+    var AZURE_INDEX_NAME = "";
+    var AZURE_QUERY_KEY = "";
+    var BAIDU_API_ID = "";
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/"||"/";
+    if(!ROOT.endsWith('/'))ROOT += '/';
+  </script>
+
+
+  
+    <script async src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        const $reveal = $('.reveal');
+    		if ($reveal.length === 0) return;
+    		const sr = ScrollReveal({ distance: 0 });
+    		sr.reveal('.reveal');
+      });
+    </script>
+  
+  
+    <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        Waves.attach('.flat-btn', ['waves-button']);
+        Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+        Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+        Waves.attach('.flat-box', ['waves-block']);
+        Waves.attach('.float-box', ['waves-block', 'waves-float']);
+        Waves.attach('.waves-image');
+        Waves.init();
+      });
+    </script>
+  
+  
+    <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+  
+  
+  
+
+  
+  
+  
+  
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    
+      
+        <script src="https://cdn.jsdelivr.net/gh/xaoxuu/volantis@1/js/volantis.min.js"></script>
+      
+    
+    <script>
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+      return GUEST_INFO.indexOf(item) > -1
+    });
+    var notify = 'false' == true;
+    var verify = 'false' == true;
+    var valine = new Valine();
+    valine.init({
+      el: '#valine_container',
+      notify: notify,
+      verify: verify,
+      guest_info: guest_info,
+      
+      appId: "JNeTBifEwmUfmdnyOEBG4suK-gzGzoHsz",
+      appKey: "Oyb5B8Dne8WofJBoEDKe60nC",
+      placeholder: "on my way to the topp.",
+      pageSize:'10',
+      avatar:'mp',
+      lang:'zh-cn',
+      highlight:''
+    })
+    </script>
+  
+
+  
+    <script src="/js/app.js"></script>
+<script src="/js/search.js"></script>
+  
+
+
+
+
+
+
+    <script>setLoadingBarProgress(100);</script>
+</body>
+</html>
